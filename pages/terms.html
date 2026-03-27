@@ -97,108 +97,9 @@
         <path d="M15 18l-6-6 6-6" />
       </svg>
     </a>
-    <h1>Terms of Service</h1>
-    <p>
-      Welcome to NOPE. By downloading, installing, or using the NOPE app
-      ("Service"), you agree to these Terms of Service ("Terms"). If you do not
-      agree, do not use the Service.
-    </p>
+    <h1 id="pageTitle">Terms of Service</h1>
 
-    <h2>1. Description of Service</h2>
-    <p>
-      NOPE is a savings app that helps you track financial goals by logging
-      impulse purchases you choose not to make. The Service includes goal
-      tracking, achievements, cloud backup (when signed in), and optional
-      premium features.
-    </p>
-
-    <h2>2. Eligibility</h2>
-    <p>
-      You must be at least 13 years old to use NOPE. By using the Service, you
-      represent that you meet this requirement.
-    </p>
-
-    <h2>3. Account & Sign-In</h2>
-    <p>
-      You may use NOPE without creating an account. Signing in with Google or
-      Apple enables cloud backup, cross-device sync, and access to premium
-      features. You are responsible for maintaining the security of your sign-in
-      credentials.
-    </p>
-
-    <h2>4. Premium Subscription & Trial</h2>
-    <ul>
-      <li>NOPE may offer a free trial and premium subscription.</li>
-      <li>
-        Subscriptions are billed through the Apple App Store or Google Play
-        Store.
-      </li>
-      <li>
-        Payment and cancellation are managed through your device's app store.
-      </li>
-      <li>Refunds are subject to the policies of Apple or Google.</li>
-    </ul>
-
-    <h2>5. Acceptable Use</h2>
-    <p>You agree not to:</p>
-    <ul>
-      <li>Use the Service for any illegal purpose</li>
-      <li>
-        Attempt to gain unauthorized access to the Service or other users' data
-      </li>
-      <li>Reverse engineer, modify, or disrupt the Service</li>
-      <li>Use the Service in a way that harms us or third parties</li>
-    </ul>
-
-    <h2>6. Intellectual Property</h2>
-    <p>
-      NOPE and its content, features, and design are owned by us and protected
-      by intellectual property laws. You may not copy, modify, or distribute our
-      materials without permission.
-    </p>
-
-    <h2>7. Disclaimers</h2>
-    <p>
-      The Service is provided "as is." We do not guarantee that NOPE will be
-      error-free, uninterrupted, or suitable for your specific financial needs.
-      NOPE is a tracking tool and does not provide financial, tax, or legal
-      advice.
-    </p>
-
-    <h2>8. Limitation of Liability</h2>
-    <p>
-      To the fullest extent permitted by law, we are not liable for any
-      indirect, incidental, special, or consequential damages arising from your
-      use of the Service. Our total liability is limited to the amount you paid
-      for the Service in the past 12 months, or $100, whichever is greater.
-    </p>
-
-    <h2>9. Termination</h2>
-    <p>
-      We may suspend or terminate your access to the Service at any time for
-      violation of these Terms or for any other reason. You may stop using the
-      Service at any time. Upon termination, your right to use the Service
-      ceases.
-    </p>
-
-    <h2>10. Changes to Terms</h2>
-    <p>
-      We may update these Terms from time to time. Continued use of the Service
-      after changes constitutes acceptance of the new Terms. We will notify you
-      of material changes through the app or by email.
-    </p>
-
-    <h2>11. Governing Law</h2>
-    <p>
-      These Terms are governed by the laws of the jurisdiction in which we
-      operate, without regard to conflict of law principles.
-    </p>
-
-    <h2>12. Contact</h2>
-    <p>
-      For questions about these Terms, contact us at:
-      <a href="mailto:support@saynope.app">support@saynope.app</a>
-    </p>
+    <div id="content"></div>
 
     <footer
       style="
@@ -209,8 +110,445 @@
         color: #666666;
         font-size: 0.875rem;
       "
+      id="footer"
     >
       © 2026 NOPE. All rights reserved.
     </footer>
+
+    <script>
+      const locales = {
+        EN: {
+          title: "Terms of Service",
+          footer: "© 2026 NOPE. All rights reserved.",
+          content: `
+            <p>
+              Welcome to NOPE. By downloading, installing, or using the NOPE app
+              ("Service"), you agree to these Terms of Service ("Terms"). If you do not
+              agree, do not use the Service.
+            </p>
+
+            <h2>1. Description of Service</h2>
+            <p>
+              NOPE is a savings app that helps you track financial goals by logging
+              impulse purchases you choose not to make. The Service includes goal
+              tracking, achievements, cloud backup (when signed in), and optional
+              premium features.
+            </p>
+
+            <h2>2. Eligibility</h2>
+            <p>
+              NOPE is designed for users of all ages. However, users under 13 should not create accounts or sign in. By using account features, you represent that you are at least 13 years old.
+            </p>
+
+            <h2>3. Account & Sign-In</h2>
+            <p>
+              You may use NOPE without creating an account. Signing in with Google or
+              Apple enables cloud backup, cross-device sync, and access to premium
+              features. You are responsible for maintaining the security of your sign-in
+              credentials.
+            </p>
+
+            <h2>4. Premium Subscription & Trial</h2>
+            <ul>
+              <li>NOPE may offer a free trial and premium subscription.</li>
+              <li>
+                Subscriptions are billed through the Apple App Store or Google Play
+                Store.
+              </li>
+              <li>
+                Payment and cancellation are managed through your device's app store.
+              </li>
+              <li>Refunds are subject to the policies of Apple or Google.</li>
+            </ul>
+
+            <h2>5. Acceptable Use</h2>
+            <p>You agree not to:</p>
+            <ul>
+              <li>Use the Service for any illegal purpose</li>
+              <li>
+                Attempt to gain unauthorized access to the Service or other users' data
+              </li>
+              <li>Reverse engineer, modify, or disrupt the Service</li>
+              <li>Use the Service in a way that harms us or third parties</li>
+            </ul>
+
+            <h2>6. Intellectual Property</h2>
+            <p>
+              NOPE and its content, features, and design are owned by us and protected
+              by intellectual property laws. You may not copy, modify, or distribute our
+              materials without permission.
+            </p>
+
+            <h2>7. Disclaimers</h2>
+            <p>
+              The Service is provided "as is." We do not guarantee that NOPE will be
+              error-free, uninterrupted, or suitable for your specific financial needs.
+              NOPE is a tracking tool and does not provide financial, tax, or legal
+              advice.
+            </p>
+
+            <h2>8. Limitation of Liability</h2>
+            <p>
+              To the fullest extent permitted by law, we are not liable for any
+              indirect, incidental, special, or consequential damages arising from your
+              use of the Service. Our total liability is limited to the amount you paid
+              for the Service in the past 12 months, or $100, whichever is greater.
+            </p>
+
+            <h2>9. Termination</h2>
+            <p>
+              We may suspend or terminate your access to the Service at any time for
+              violation of these Terms or for any other reason. You may stop using the
+              Service at any time. Upon termination, your right to use the Service
+              ceases.
+            </p>
+
+            <h2>10. Changes to Terms</h2>
+            <p>
+              We may update these Terms from time to time. Continued use of the Service
+              after changes constitutes acceptance of the new Terms. We will notify you
+              of material changes through the app or by email.
+            </p>
+
+            <h2>11. Governing Law</h2>
+            <p>
+              These Terms are governed by the laws of the jurisdiction in which we
+              operate, without regard to conflict of law principles.
+            </p>
+
+            <h2>12. Contact</h2>
+            <p>
+              For questions about these Terms, contact us at:
+              <a href="mailto:support@saynope.app">support@saynope.app</a>
+            </p>
+          `,
+        },
+        ES: {
+          title: "Términos de Servicio",
+          footer: "© 2026 NOPE. Todos los derechos reservados.",
+          content: `
+            <p>
+              Bienvenido a NOPE. Al descargar, instalar o usar la aplicación NOPE
+              ("Servicio"), aceptas estos Términos de Servicio ("Términos"). Si no estás de
+              acuerdo, no uses el Servicio.
+            </p>
+
+            <h2>1. Descripción del Servicio</h2>
+            <p>
+              NOPE es una aplicación de ahorro que te ayuda a rastrear objetivos financieros registrando
+              compras impulsivas que eliges no hacer. El Servicio incluye seguimiento de objetivos,
+              logros, copia de seguridad en la nube (cuando inicias sesión) y funciones premium opcionales.
+            </p>
+
+            <h2>2. Elegibilidad</h2>
+            <p>
+              NOPE está diseñado para usuarios de todas las edades. Sin embargo, los usuarios menores de 13 años no deben crear cuentas ni iniciar sesión. Al usar las funciones de cuenta, declaras que tienes al menos 13 años.
+            </p>
+
+            <h2>3. Cuenta e Inicio de Sesión</h2>
+            <p>
+              Puedes usar NOPE sin crear una cuenta. Iniciar sesión con Google o
+              Apple habilita la copia de seguridad en la nube, sincronización entre dispositivos y acceso a funciones
+              premium. Eres responsable de mantener la seguridad de tus
+              credenciales de inicio de sesión.
+            </p>
+
+            <h2>4. Suscripción Premium y Período de Prueba</h2>
+            <ul>
+              <li>NOPE puede ofrecer un período de prueba gratuito y suscripción premium.</li>
+              <li>
+                Las suscripciones se facturan a través de Apple App Store o Google Play
+                Store.
+              </li>
+              <li>
+                El pago y la cancelación se gestionan a través de la tienda de aplicaciones de tu dispositivo.
+              </li>
+              <li>Los reembolsos están sujetos a las políticas de Apple o Google.</li>
+            </ul>
+
+            <h2>5. Uso Aceptable</h2>
+            <p>Aceptas no:</p>
+            <ul>
+              <li>Usar el Servicio para ningún propósito ilegal</li>
+              <li>
+                Intentar obtener acceso no autorizado al Servicio o datos de otros usuarios
+              </li>
+              <li>Realizar ingeniería inversa, modificar o interrumpir el Servicio</li>
+              <li>Usar el Servicio de manera que nos perjudique a nosotros o a terceros</li>
+            </ul>
+
+            <h2>6. Propiedad Intelectual</h2>
+            <p>
+              NOPE y su contenido, funciones y diseño son propiedad nuestra y están protegidos
+              por leyes de propiedad intelectual. No puedes copiar, modificar o distribuir nuestros
+              materiales sin permiso.
+            </p>
+
+            <h2>7. Descargos de Responsabilidad</h2>
+            <p>
+              El Servicio se proporciona "tal cual". No garantizamos que NOPE sea
+              libre de errores, ininterrumpido o adecuado para tus necesidades financieras específicas.
+              NOPE es una herramienta de seguimiento y no proporciona asesoramiento financiero, fiscal o legal.
+            </p>
+
+            <h2>8. Limitación de Responsabilidad</h2>
+            <p>
+              En la máxima medida permitida por la ley, no somos responsables de ningún
+              daño indirecto, incidental, especial o consecuente que surja de tu
+              uso del Servicio. Nuestra responsabilidad total se limita al monto que pagaste
+              por el Servicio en los últimos 12 meses, o $100, lo que sea mayor.
+            </p>
+
+            <h2>9. Terminación</h2>
+            <p>
+              Podemos suspender o terminar tu acceso al Servicio en cualquier momento por
+              violación de estos Términos o por cualquier otra razón. Puedes dejar de usar el
+              Servicio en cualquier momento. Tras la terminación, tu derecho a usar el Servicio
+              cesa.
+            </p>
+
+            <h2>10. Cambios en los Términos</h2>
+            <p>
+              Podemos actualizar estos Términos de vez en cuando. El uso continuado del Servicio
+              después de los cambios constituye la aceptación de los nuevos Términos. Te notificaremos
+              de cambios importantes a través de la aplicación o por correo electrónico.
+            </p>
+
+            <h2>11. Ley Aplicable</h2>
+            <p>
+              Estos Términos se rigen por las leyes de la jurisdicción en la que
+              operamos, sin tener en cuenta los principios de conflicto de leyes.
+            </p>
+
+            <h2>12. Contacto</h2>
+            <p>
+              Para preguntas sobre estos Términos, contáctanos en:
+              <a href="mailto:support@saynope.app">support@saynope.app</a>
+            </p>
+          `,
+        },
+        PT: {
+          title: "Termos de Serviço",
+          footer: "© 2026 NOPE. Todos os direitos reservados.",
+          content: `
+            <p>
+              Bem-vindo ao NOPE. Ao baixar, instalar ou usar o aplicativo NOPE
+              ("Serviço"), você concorda com estes Termos de Serviço ("Termos"). Se você não
+              concordar, não use o Serviço.
+            </p>
+
+            <h2>1. Descrição do Serviço</h2>
+            <p>
+              NOPE é um aplicativo de economia que ajuda você a rastrear objetivos financeiros registrando
+              compras impulsivas que você escolhe não fazer. O Serviço inclui rastreamento de objetivos,
+              conquistas, backup na nuvem (quando logado) e recursos premium opcionais.
+            </p>
+
+            <h2>2. Elegibilidade</h2>
+            <p>
+              NOPE é projetado para usuários de todas as idades. No entanto, usuários menores de 13 anos não devem criar contas ou fazer login. Ao usar os recursos de conta, você declara que tem pelo menos 13 anos.
+            </p>
+
+            <h2>3. Conta e Login</h2>
+            <p>
+              Você pode usar o NOPE sem criar uma conta. Fazer login com Google ou
+              Apple habilita backup na nuvem, sincronização entre dispositivos e acesso a recursos
+              premium. Você é responsável por manter a segurança de suas
+              credenciais de login.
+            </p>
+
+            <h2>4. Assinatura Premium e Período de Teste</h2>
+            <ul>
+              <li>NOPE pode oferecer um período de teste gratuito e assinatura premium.</li>
+              <li>
+                As assinaturas são cobradas através da Apple App Store ou Google Play
+                Store.
+              </li>
+              <li>
+                O pagamento e o cancelamento são gerenciados através da loja de aplicativos do seu dispositivo.
+              </li>
+              <li>Os reembolsos estão sujeitos às políticas da Apple ou Google.</li>
+            </ul>
+
+            <h2>5. Uso Aceitável</h2>
+            <p>Você concorda em não:</p>
+            <ul>
+              <li>Usar o Serviço para qualquer finalidade ilegal</li>
+              <li>
+                Tentar obter acesso não autorizado ao Serviço ou dados de outros usuários
+              </li>
+              <li>Fazer engenharia reversa, modificar ou interromper o Serviço</li>
+              <li>Usar o Serviço de forma que prejudique a nós ou terceiros</li>
+            </ul>
+
+            <h2>6. Propriedade Intelectual</h2>
+            <p>
+              NOPE e seu conteúdo, recursos e design são de nossa propriedade e protegidos
+              por leis de propriedade intelectual. Você não pode copiar, modificar ou distribuir nossos
+              materiais sem permissão.
+            </p>
+
+            <h2>7. Isenções de Responsabilidade</h2>
+            <p>
+              O Serviço é fornecido "no estado em que se encontra". Não garantimos que o NOPE seja
+              livre de erros, ininterrupto ou adequado para suas necessidades financeiras específicas.
+              NOPE é uma ferramenta de rastreamento e não fornece consultoria financeira, fiscal ou jurídica.
+            </p>
+
+            <h2>8. Limitação de Responsabilidade</h2>
+            <p>
+              Na máxima extensão permitida por lei, não somos responsáveis por quaisquer
+              danos indiretos, incidentais, especiais ou consequentes decorrentes do seu
+              uso do Serviço. Nossa responsabilidade total é limitada ao valor que você pagou
+              pelo Serviço nos últimos 12 meses, ou $100, o que for maior.
+            </p>
+
+            <h2>9. Rescisão</h2>
+            <p>
+              Podemos suspender ou encerrar seu acesso ao Serviço a qualquer momento por
+              violação destes Termos ou por qualquer outro motivo. Você pode parar de usar o
+              Serviço a qualquer momento. Após a rescisão, seu direito de usar o Serviço
+              cessa.
+            </p>
+
+            <h2>10. Alterações nos Termos</h2>
+            <p>
+              Podemos atualizar estes Termos de tempos em tempos. O uso continuado do Serviço
+              após as alterações constitui aceitação dos novos Termos. Notificaremos você
+              de alterações importantes através do aplicativo ou por e-mail.
+            </p>
+
+            <h2>11. Lei Aplicável</h2>
+            <p>
+              Estes Termos são regidos pelas leis da jurisdição em que
+              operamos, sem considerar os princípios de conflito de leis.
+            </p>
+
+            <h2>12. Contato</h2>
+            <p>
+              Para perguntas sobre estes Termos, entre em contato conosco em:
+              <a href="mailto:support@saynope.app">support@saynope.app</a>
+            </p>
+          `,
+        },
+        UA: {
+          title: "Умови Використання",
+          footer: "© 2026 NOPE. Всі права захищені.",
+          content: `
+            <p>
+              Ласкаво просимо до NOPE. Завантажуючи, встановлюючи або використовуючи додаток NOPE
+              ("Сервіс"), ви погоджуєтеся з цими Умовами Використання ("Умови"). Якщо ви не
+              згодні, не використовуйте Сервіс.
+            </p>
+
+            <h2>1. Опис Сервісу</h2>
+            <p>
+              NOPE — це додаток для заощаджень, який допомагає відстежувати фінансові цілі, реєструючи
+              імпульсивні покупки, які ви вирішили не робити. Сервіс включає відстеження цілей,
+              досягнення, резервне копіювання в хмарі (коли ви увійшли) та додаткові
+              преміум функції.
+            </p>
+
+            <h2>2. Право на Використання</h2>
+            <p>
+              NOPE призначений для користувачів усіх віків. Однак користувачі віком до 13 років не повинні створювати облікові записи або входити в систему. Використовуючи функції облікового запису, ви підтверджуєте, що вам принаймні 13 років.
+            </p>
+
+            <h2>3. Обліковий Запис та Вхід</h2>
+            <p>
+              Ви можете використовувати NOPE без створення облікового запису. Вхід через Google або
+              Apple забезпечує резервне копіювання в хмарі, синхронізацію між пристроями та доступ до преміум
+              функцій. Ви несете відповідальність за підтримку безпеки ваших
+              облікових даних для входу.
+            </p>
+
+            <h2>4. Преміум Підписка та Пробний Період</h2>
+            <ul>
+              <li>NOPE може пропонувати безкоштовний пробний період та преміум підписку.</li>
+              <li>
+                Підписки виставляються через Apple App Store або Google Play
+                Store.
+              </li>
+              <li>
+                Оплата та скасування здійснюються через магазин додатків вашого пристрою.
+              </li>
+              <li>Повернення коштів підлягає політиці Apple або Google.</li>
+            </ul>
+
+            <h2>5. Прийнятне Використання</h2>
+            <p>Ви погоджуєтесь не:</p>
+            <ul>
+              <li>Використовувати Сервіс для будь-яких незаконних цілей</li>
+              <li>
+                Намагатися отримати несанкціонований доступ до Сервісу або даних інших користувачів
+              </li>
+              <li>Виконувати зворотну розробку, модифікувати або порушувати роботу Сервісу</li>
+              <li>Використовувати Сервіс у спосіб, який завдає шкоди нам або третім особам</li>
+            </ul>
+
+            <h2>6. Інтелектуальна Власність</h2>
+            <p>
+              NOPE та його вміст, функції та дизайн належать нам і захищені
+              законами про інтелектуальну власність. Ви не можете копіювати, модифікувати або поширювати наші
+              матеріали без дозволу.
+            </p>
+
+            <h2>7. Відмова від Гарантій</h2>
+            <p>
+              Сервіс надається "як є". Ми не гарантуємо, що NOPE буде
+              без помилок, безперервним або придатним для ваших конкретних фінансових потреб.
+              NOPE — це інструмент відстеження і не надає фінансових, податкових або юридичних
+              консультацій.
+            </p>
+
+            <h2>8. Обмеження Відповідальності</h2>
+            <p>
+              У максимальній мірі, дозволеній законом, ми не несемо відповідальності за будь-які
+              непрямі, випадкові, спеціальні або наслідкові збитки, що виникають від вашого
+              використання Сервісу. Наша загальна відповідальність обмежена сумою, яку ви заплатили
+              за Сервіс протягом останніх 12 місяців, або $100, залежно від того, що більше.
+            </p>
+
+            <h2>9. Припинення</h2>
+            <p>
+              Ми можемо призупинити або припинити ваш доступ до Сервісу в будь-який час за
+              порушення цих Умов або з будь-якої іншої причини. Ви можете припинити використання
+              Сервісу в будь-який час. Після припинення ваше право на використання Сервісу
+              припиняється.
+            </p>
+
+            <h2>10. Зміни Умов</h2>
+            <p>
+              Ми можемо час від часу оновлювати ці Умови. Продовження використання Сервісу
+              після змін означає прийняття нових Умов. Ми повідомимо вас
+              про суттєві зміни через додаток або електронною поштою.
+            </p>
+
+            <h2>11. Застосовне Право</h2>
+            <p>
+              Ці Умови регулюються законами юрисдикції, в якій ми
+              працюємо, без урахування принципів колізії права.
+            </p>
+
+            <h2>12. Контакт</h2>
+            <p>
+              З питань про ці Умови зв'яжіться з нами за адресою:
+              <a href="mailto:support@saynope.app">support@saynope.app</a>
+            </p>
+          `,
+        },
+      };
+
+      // Get saved locale from home page
+      const currentLocale = localStorage.getItem("nope-locale") || "EN";
+      const content = locales[currentLocale];
+
+      // Update page
+      document.getElementById("pageTitle").textContent = content.title;
+      document.getElementById("content").innerHTML = content.content;
+      document.getElementById("footer").textContent = content.footer;
+      document.documentElement.lang = currentLocale.toLowerCase();
+      document.title = content.title + " - NOPE";
+    </script>
   </body>
 </html>

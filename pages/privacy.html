@@ -93,66 +93,281 @@
         <path d="M15 18l-6-6 6-6"/>
     </svg>
 </a>
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: February 2025</p>
+<h1 id="pageTitle">Privacy Policy</h1>
+<p class="updated" id="lastUpdated">Last updated: February 2025</p>
 
-<p>NOPE ("we," "our," or "us") is a savings app that helps you reach your financial goals. This Privacy Policy explains how we collect, use, and protect your information when you use the NOPE app.</p>
+<div id="content"></div>
 
-<h2>1. Information We Collect</h2>
+<script>
+  const locales = {
+    EN: {
+      title: "Privacy Policy",
+      lastUpdated: "Last updated: February 2025",
+      content: `
+        <p>NOPE ("we," "our," or "us") is a savings app that helps you reach your financial goals. This Privacy Policy explains how we collect, use, and protect your information when you use the NOPE app.</p>
 
-<h3>Account Information (when you sign in)</h3>
-<p>When you sign in with Google or Apple, we receive:</p>
-<ul>
-    <li>Email address</li>
-    <li>Name</li>
-    <li>Profile photo (if provided by the provider)</li>
-</ul>
+        <h2>1. Information We Collect</h2>
 
-<h3>Data You Create</h3>
-<ul>
-    <li><strong>Savings goals</strong> – amounts, descriptions, and completion status</li>
-    <li><strong>Achievements</strong> – progress and unlock times</li>
-    <li><strong>Preferences</strong> – currency (USD, EUR, UAH) and language (English, Spanish, Portuguese, Ukrainian)</li>
-</ul>
+        <h3>Account Information (when you sign in)</h3>
+        <p>When you sign in with Google or Apple, we receive:</p>
+        <ul>
+            <li>Email address</li>
+            <li>Name</li>
+            <li>Profile photo (if provided by the provider)</li>
+        </ul>
 
-<h3>Device & Usage Data</h3>
-<p>We may collect device identifiers and usage information to operate the app, fix issues, and improve the service.</p>
+        <h3>Data You Create</h3>
+        <ul>
+            <li><strong>Savings goals</strong> – amounts, descriptions, and completion status</li>
+            <li><strong>Achievements</strong> – progress and unlock times</li>
+            <li><strong>Preferences</strong> – currency (USD, EUR, UAH) and language (English, Spanish, Portuguese, Ukrainian)</li>
+        </ul>
 
-<h2>2. How We Use Your Information</h2>
-<ul>
-    <li>To provide and improve the NOPE app</li>
-    <li>To sync your goals and achievements across devices when you sign in</li>
-    <li>To manage your premium subscription and trial</li>
-    <li>To send trial reminder notifications (if you enable them)</li>
-    <li>To respond to support requests</li>
-</ul>
+        <h3>Device & Usage Data</h3>
+        <p>We may collect device identifiers and usage information to operate the app, fix issues, and improve the service.</p>
 
-<h2>3. Third-Party Services</h2>
-<p>We use the following services that may process your data:</p>
-<ul>
-    <li><strong>Clerk</strong> – Authentication (Google, Apple Sign-In). See <a href="https://clerk.com/privacy" target="_blank" rel="noopener">Clerk's Privacy Policy</a>.</li>
-    <li><strong>Supabase</strong> – Cloud database for storing your goals and achievements when signed in. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's Privacy Policy</a>.</li>
-    <li><strong>RevenueCat</strong> – Subscription and in-app purchase management. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a>.</li>
-    <li><strong>Expo</strong> – App framework and push notifications. See <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Expo's Privacy Policy</a>.</li>
-</ul>
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+            <li>To provide and improve the NOPE app</li>
+            <li>To sync your goals and achievements across devices when you sign in</li>
+            <li>To manage your premium subscription and trial</li>
+            <li>To send trial reminder notifications (if you enable them)</li>
+            <li>To respond to support requests</li>
+        </ul>
 
-<h2>4. Data Storage</h2>
-<p><strong>Without sign-in:</strong> Your goals and data are stored locally on your device only.</p>
-<p><strong>With sign-in:</strong> Your data is backed up to our cloud (Supabase) and synced across your devices.</p>
+        <h2>3. Third-Party Services</h2>
+        <p>We use the following services that may process your data:</p>
+        <ul>
+            <li><strong>Clerk</strong> – Authentication (Google, Apple Sign-In). See <a href="https://clerk.com/privacy" target="_blank" rel="noopener">Clerk's Privacy Policy</a>.</li>
+            <li><strong>Supabase</strong> – Cloud database for storing your goals and achievements when signed in. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's Privacy Policy</a>.</li>
+            <li><strong>RevenueCat</strong> – Subscription and in-app purchase management. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a>.</li>
+            <li><strong>Expo</strong> – App framework and push notifications. See <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Expo's Privacy Policy</a>.</li>
+        </ul>
 
-<h2>5. Data Security</h2>
-<p>We use industry-standard measures to protect your data, including secure storage for authentication tokens and encrypted connections.</p>
+        <h2>4. Data Storage</h2>
+        <p><strong>Without sign-in:</strong> Your goals and data are stored locally on your device only.</p>
+        <p><strong>With sign-in:</strong> Your data is backed up to our cloud (Supabase) and synced across your devices.</p>
 
-<h2>6. Your Rights</h2>
-<p>Depending on your location, you may have the right to access, correct, or delete your data. You can delete your account directly in the app through Settings. Deleting your account does not cancel your subscription. To cancel your subscription, please manage it through your device's App Store settings. For EU/UK users, we process your data in accordance with applicable data protection laws.</p>
+        <h2>5. Data Security</h2>
+        <p>We use industry-standard measures to protect your data, including secure storage for authentication tokens and encrypted connections.</p>
 
-<h2>7. Children</h2>
-<p>NOPE is not intended for users under 13. We do not knowingly collect data from children under 13.</p>
+        <h2>6. Your Rights</h2>
+        <p>Depending on your location, you may have the right to access, correct, or delete your data. You can delete your account directly in the app through Settings. Deleting your account does not cancel your subscription. To cancel your subscription, please manage it through your device's App Store settings. For EU/UK users, we process your data in accordance with applicable data protection laws.</p>
 
-<h2>8. Changes</h2>
-<p>We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last updated" date or through the app.</p>
+        <h2>7. Children</h2>
+        <p>NOPE is designed for users of all ages. However, users under 13 should not create accounts or sign in. We do not knowingly collect personal information from children under 13.</p>
 
-<h2>9. Contact Us</h2>
-<p>For questions about this Privacy Policy or your data, contact us at: <a href="mailto:support@saynope.app">support@saynope.app</a></p>
+        <h2>8. Changes</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last updated" date or through the app.</p>
+
+        <h2>9. Contact Us</h2>
+        <p>For questions about this Privacy Policy or your data, contact us at: <a href="mailto:support@saynope.app">support@saynope.app</a></p>
+      `,
+    },
+    ES: {
+      title: "Política de Privacidad",
+      lastUpdated: "Última actualización: Febrero 2025",
+      content: `
+        <p>NOPE ("nosotros", "nuestro" o "nos") es una aplicación de ahorro que te ayuda a alcanzar tus objetivos financieros. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando usas la aplicación NOPE.</p>
+
+        <h2>1. Información que Recopilamos</h2>
+
+        <h3>Información de Cuenta (cuando inicias sesión)</h3>
+        <p>Cuando inicias sesión con Google o Apple, recibimos:</p>
+        <ul>
+            <li>Dirección de correo electrónico</li>
+            <li>Nombre</li>
+            <li>Foto de perfil (si la proporciona el proveedor)</li>
+        </ul>
+
+        <h3>Datos que Creas</h3>
+        <ul>
+            <li><strong>Objetivos de ahorro</strong> – cantidades, descripciones y estado de finalización</li>
+            <li><strong>Logros</strong> – progreso y tiempos de desbloqueo</li>
+            <li><strong>Preferencias</strong> – moneda (USD, EUR, UAH) e idioma (inglés, español, portugués, ucraniano)</li>
+        </ul>
+
+        <h3>Datos del Dispositivo y Uso</h3>
+        <p>Podemos recopilar identificadores de dispositivo e información de uso para operar la aplicación, corregir problemas y mejorar el servicio.</p>
+
+        <h2>2. Cómo Usamos Tu Información</h2>
+        <ul>
+            <li>Para proporcionar y mejorar la aplicación NOPE</li>
+            <li>Para sincronizar tus objetivos y logros entre dispositivos cuando inicias sesión</li>
+            <li>Para gestionar tu suscripción premium y período de prueba</li>
+            <li>Para enviar notificaciones de recordatorio de prueba (si las habilitas)</li>
+            <li>Para responder a solicitudes de soporte</li>
+        </ul>
+
+        <h2>3. Servicios de Terceros</h2>
+        <p>Utilizamos los siguientes servicios que pueden procesar tus datos:</p>
+        <ul>
+            <li><strong>Clerk</strong> – Autenticación (Google, Apple Sign-In). Ver <a href="https://clerk.com/privacy" target="_blank" rel="noopener">Política de Privacidad de Clerk</a>.</li>
+            <li><strong>Supabase</strong> – Base de datos en la nube para almacenar tus objetivos y logros cuando inicias sesión. Ver <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Política de Privacidad de Supabase</a>.</li>
+            <li><strong>RevenueCat</strong> – Gestión de suscripciones y compras dentro de la aplicación. Ver <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Política de Privacidad de RevenueCat</a>.</li>
+            <li><strong>Expo</strong> – Marco de aplicación y notificaciones push. Ver <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Política de Privacidad de Expo</a>.</li>
+        </ul>
+
+        <h2>4. Almacenamiento de Datos</h2>
+        <p><strong>Sin iniciar sesión:</strong> Tus objetivos y datos se almacenan localmente solo en tu dispositivo.</p>
+        <p><strong>Con inicio de sesión:</strong> Tus datos se respaldan en nuestra nube (Supabase) y se sincronizan en todos tus dispositivos.</p>
+
+        <h2>5. Seguridad de Datos</h2>
+        <p>Utilizamos medidas estándar de la industria para proteger tus datos, incluido el almacenamiento seguro de tokens de autenticación y conexiones cifradas.</p>
+
+        <h2>6. Tus Derechos</h2>
+        <p>Dependiendo de tu ubicación, puedes tener derecho a acceder, corregir o eliminar tus datos. Puedes eliminar tu cuenta directamente en la aplicación a través de Configuración. Eliminar tu cuenta no cancela tu suscripción. Para cancelar tu suscripción, adminístrala a través de la configuración de App Store de tu dispositivo. Para usuarios de la UE/Reino Unido, procesamos tus datos de acuerdo con las leyes de protección de datos aplicables.</p>
+
+        <h2>7. Menores</h2>
+        <p>NOPE está diseñado para usuarios de todas las edades. Sin embargo, los usuarios menores de 13 años no deben crear cuentas ni iniciar sesión. No recopilamos conscientemente información personal de niños menores de 13 años.</p>
+
+        <h2>8. Cambios</h2>
+        <p>Podemos actualizar esta Política de Privacidad de vez en cuando. Te notificaremos de cambios importantes actualizando la fecha de "Última actualización" o a través de la aplicación.</p>
+
+        <h2>9. Contáctanos</h2>
+        <p>Para preguntas sobre esta Política de Privacidad o tus datos, contáctanos en: <a href="mailto:support@saynope.app">support@saynope.app</a></p>
+      `,
+    },
+    PT: {
+      title: "Política de Privacidade",
+      lastUpdated: "Última atualização: Fevereiro 2025",
+      content: `
+        <p>NOPE ("nós", "nosso" ou "nos") é um aplicativo de economia que ajuda você a alcançar seus objetivos financeiros. Esta Política de Privacidade explica como coletamos, usamos e protegemos suas informações quando você usa o aplicativo NOPE.</p>
+
+        <h2>1. Informações que Coletamos</h2>
+
+        <h3>Informações da Conta (quando você faz login)</h3>
+        <p>Quando você faz login com Google ou Apple, recebemos:</p>
+        <ul>
+            <li>Endereço de e-mail</li>
+            <li>Nome</li>
+            <li>Foto de perfil (se fornecida pelo provedor)</li>
+        </ul>
+
+        <h3>Dados que Você Cria</h3>
+        <ul>
+            <li><strong>Metas de economia</strong> – valores, descrições e status de conclusão</li>
+            <li><strong>Conquistas</strong> – progresso e horários de desbloqueio</li>
+            <li><strong>Preferências</strong> – moeda (USD, EUR, UAH) e idioma (inglês, espanhol, português, ucraniano)</li>
+        </ul>
+
+        <h3>Dados do Dispositivo e Uso</h3>
+        <p>Podemos coletar identificadores de dispositivo e informações de uso para operar o aplicativo, corrigir problemas e melhorar o serviço.</p>
+
+        <h2>2. Como Usamos Suas Informações</h2>
+        <ul>
+            <li>Para fornecer e melhorar o aplicativo NOPE</li>
+            <li>Para sincronizar suas metas e conquistas entre dispositivos quando você faz login</li>
+            <li>Para gerenciar sua assinatura premium e período de teste</li>
+            <li>Para enviar notificações de lembrete de teste (se você habilitá-las)</li>
+            <li>Para responder a solicitações de suporte</li>
+        </ul>
+
+        <h2>3. Serviços de Terceiros</h2>
+        <p>Usamos os seguintes serviços que podem processar seus dados:</p>
+        <ul>
+            <li><strong>Clerk</strong> – Autenticação (Google, Apple Sign-In). Veja a <a href="https://clerk.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Clerk</a>.</li>
+            <li><strong>Supabase</strong> – Banco de dados na nuvem para armazenar suas metas e conquistas quando você faz login. Veja a <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Supabase</a>.</li>
+            <li><strong>RevenueCat</strong> – Gerenciamento de assinaturas e compras no aplicativo. Veja a <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Política de Privacidade do RevenueCat</a>.</li>
+            <li><strong>Expo</strong> – Framework de aplicativo e notificações push. Veja a <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Política de Privacidade do Expo</a>.</li>
+        </ul>
+
+        <h2>4. Armazenamento de Dados</h2>
+        <p><strong>Sem login:</strong> Suas metas e dados são armazenados localmente apenas no seu dispositivo.</p>
+        <p><strong>Com login:</strong> Seus dados são copiados para nossa nuvem (Supabase) e sincronizados em todos os seus dispositivos.</p>
+
+        <h2>5. Segurança de Dados</h2>
+        <p>Usamos medidas padrão da indústria para proteger seus dados, incluindo armazenamento seguro de tokens de autenticação e conexões criptografadas.</p>
+
+        <h2>6. Seus Direitos</h2>
+        <p>Dependendo da sua localização, você pode ter o direito de acessar, corrigir ou excluir seus dados. Você pode excluir sua conta diretamente no aplicativo através de Configurações. Excluir sua conta não cancela sua assinatura. Para cancelar sua assinatura, gerencie-a através das configurações da App Store do seu dispositivo. Para usuários da UE/Reino Unido, processamos seus dados de acordo com as leis de proteção de dados aplicáveis.</p>
+
+        <h2>7. Crianças</h2>
+        <p>NOPE é projetado para usuários de todas as idades. No entanto, usuários menores de 13 anos não devem criar contas ou fazer login. Não coletamos conscientemente informações pessoais de crianças menores de 13 anos.</p>
+
+        <h2>8. Alterações</h2>
+        <p>Podemos atualizar esta Política de Privacidade de tempos em tempos. Notificaremos você de alterações importantes atualizando a data de "Última atualização" ou através do aplicativo.</p>
+
+        <h2>9. Contate-nos</h2>
+        <p>Para perguntas sobre esta Política de Privacidade ou seus dados, entre em contato conosco em: <a href="mailto:support@saynope.app">support@saynope.app</a></p>
+      `,
+    },
+    UA: {
+      title: "Політика Конфіденційності",
+      lastUpdated: "Останнє оновлення: Лютий 2025",
+      content: `
+        <p>NOPE ("ми", "наш" або "нас") — це додаток для заощаджень, який допомагає вам досягти ваших фінансових цілей. Ця Політика Конфіденційності пояснює, як ми збираємо, використовуємо та захищаємо вашу інформацію, коли ви користуєтесь додатком NOPE.</p>
+
+        <h2>1. Інформація, яку Ми Збираємо</h2>
+
+        <h3>Інформація Облікового Запису (коли ви входите)</h3>
+        <p>Коли ви входите через Google або Apple, ми отримуємо:</p>
+        <ul>
+            <li>Адресу електронної пошти</li>
+            <li>Ім'я</li>
+            <li>Фото профілю (якщо надано провайдером)</li>
+        </ul>
+
+        <h3>Дані, які Ви Створюєте</h3>
+        <ul>
+            <li><strong>Цілі заощаджень</strong> – суми, описи та статус завершення</li>
+            <li><strong>Досягнення</strong> – прогрес та час розблокування</li>
+            <li><strong>Налаштування</strong> – валюта (USD, EUR, UAH) та мова (англійська, іспанська, португальська, українська)</li>
+        </ul>
+
+        <h3>Дані Пристрою та Використання</h3>
+        <p>Ми можемо збирати ідентифікатори пристрою та інформацію про використання для роботи додатку, виправлення проблем та покращення сервісу.</p>
+
+        <h2>2. Як Ми Використовуємо Вашу Інформацію</h2>
+        <ul>
+            <li>Для надання та покращення додатку NOPE</li>
+            <li>Для синхронізації ваших цілей та досягнень між пристроями, коли ви входите</li>
+            <li>Для управління вашою преміум підпискою та пробним періодом</li>
+            <li>Для надсилання сповіщень-нагадувань про пробний період (якщо ви їх увімкнули)</li>
+            <li>Для відповіді на запити підтримки</li>
+        </ul>
+
+        <h2>3. Сторонні Сервіси</h2>
+        <p>Ми використовуємо наступні сервіси, які можуть обробляти ваші дані:</p>
+        <ul>
+            <li><strong>Clerk</strong> – Автентифікація (Google, Apple Sign-In). Див. <a href="https://clerk.com/privacy" target="_blank" rel="noopener">Політику Конфіденційності Clerk</a>.</li>
+            <li><strong>Supabase</strong> – Хмарна база даних для зберігання ваших цілей та досягнень, коли ви входите. Див. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Політику Конфіденційності Supabase</a>.</li>
+            <li><strong>RevenueCat</strong> – Управління підписками та покупками в додатку. Див. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Політику Конфіденційності RevenueCat</a>.</li>
+            <li><strong>Expo</strong> – Фреймворк додатку та push-сповіщення. Див. <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Політику Конфіденційності Expo</a>.</li>
+        </ul>
+
+        <h2>4. Зберігання Даних</h2>
+        <p><strong>Без входу:</strong> Ваші цілі та дані зберігаються локально тільки на вашому пристрої.</p>
+        <p><strong>З входом:</strong> Ваші дані копіюються в нашу хмару (Supabase) і синхронізуються на всіх ваших пристроях.</p>
+
+        <h2>5. Безпека Даних</h2>
+        <p>Ми використовуємо стандартні галузеві заходи для захисту ваших даних, включаючи безпечне зберігання токенів автентифікації та зашифровані з'єднання.</p>
+
+        <h2>6. Ваші Права</h2>
+        <p>Залежно від вашого місцезнаходження, ви можете мати право на доступ, виправлення або видалення ваших даних. Ви можете видалити свій обліковий запис безпосередньо в додатку через Налаштування. Видалення облікового запису не скасовує вашу підписку. Щоб скасувати підписку, керуйте нею через налаштування App Store вашого пристрою. Для користувачів ЄС/Великобританії ми обробляємо ваші дані відповідно до застосовних законів про захист даних.</p>
+
+        <h2>7. Діти</h2>
+        <p>NOPE призначений для користувачів усіх віків. Однак користувачі віком до 13 років не повинні створювати облікові записи або входити в систему. Ми свідомо не збираємо персональну інформацію від дітей віком до 13 років.</p>
+
+        <h2>8. Зміни</h2>
+        <p>Ми можемо час від часу оновлювати цю Політику Конфіденційності. Ми повідомимо вас про суттєві зміни, оновивши дату "Останнє оновлення" або через додаток.</p>
+
+        <h2>9. Зв'яжіться з Нами</h2>
+        <p>З питань про цю Політику Конфіденційності або ваші дані зв'яжіться з нами за адресою: <a href="mailto:support@saynope.app">support@saynope.app</a></p>
+      `,
+    },
+  };
+
+  // Get saved locale from home page
+  const currentLocale = localStorage.getItem("nope-locale") || "EN";
+  const content = locales[currentLocale];
+
+  // Update page
+  document.getElementById("pageTitle").textContent = content.title;
+  document.getElementById("lastUpdated").textContent = content.lastUpdated;
+  document.getElementById("content").innerHTML = content.content;
+  document.documentElement.lang = currentLocale.toLowerCase();
+  document.title = content.title + " - NOPE";
+</script>
 </body>
 </html>
