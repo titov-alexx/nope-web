@@ -145,9 +145,10 @@
 
       main {
         flex: 1;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8rem;
         align-items: center;
-        justify-content: flex-start;
         padding: 2rem 4rem;
         max-width: 1400px;
         margin: 0 auto;
@@ -156,7 +157,7 @@
       }
 
       .hero {
-        max-width: 600px;
+        max-width: 500px;
         text-align: left;
       }
 
@@ -286,15 +287,11 @@
       }
 
       .phone-mockups {
-        position: absolute;
-        right: -150px;
-        top: 50%;
-        transform: translateY(-50%);
-        flex-shrink: 0;
+        position: relative;
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        width: 800px;
+        width: 100%;
         height: auto;
       }
 
@@ -416,13 +413,15 @@
 
       @media (max-width: 1200px) {
         main {
-          flex-direction: column;
+          grid-template-columns: 1fr;
           gap: 2rem;
           padding-top: 6rem;
         }
 
         .hero {
           text-align: center;
+          margin: 0 auto;
+          max-width: 600px;
         }
 
         .app-buttons {
