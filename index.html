@@ -538,11 +538,11 @@
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 20px;
-          width: 320px;
-          min-width: 280px;
-          max-width: 32vw;
+          border-radius: 16px;
+          padding: 14px;
+          width: 280px;
+          min-width: 240px;
+          max-width: 85vw;
           box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -573,14 +573,14 @@
         .goal-header {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-bottom: 8px;
+          gap: 8px;
+          margin-bottom: 6px;
         }
 
         .goal-icon {
-          width: 36px;
-          height: 36px;
-          border-radius: 10px;
+          width: 28px;
+          height: 28px;
+          border-radius: 8px;
           background: rgba(255, 255, 255, 0.06);
           display: flex;
           align-items: center;
@@ -600,12 +600,12 @@
         }
 
         .goal-icon svg {
-          width: 22px;
-          height: 22px;
+          width: 18px;
+          height: 18px;
         }
 
         .goal-name {
-          font-size: 17px;
+          font-size: 15px;
           font-weight: 600;
           color: rgba(255, 255, 255, 0.8);
         }
@@ -613,11 +613,11 @@
         .goal-amounts {
           display: flex;
           align-items: center;
-          margin-top: 4px;
+          margin-top: 3px;
         }
 
         .current-amount {
-          font-size: 22px;
+          font-size: 19px;
           font-weight: 500;
         }
 
@@ -639,7 +639,7 @@
         }
 
         .target-amount {
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 500;
           color: rgba(255, 255, 255, 0.65);
         }
@@ -647,15 +647,15 @@
         .progress-container {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-top: 12px;
+          gap: 8px;
+          margin-top: 8px;
         }
 
         .progress-bar {
           flex: 1;
-          height: 10px;
+          height: 8px;
           background: rgba(255, 255, 255, 0.08);
-          border-radius: 6px;
+          border-radius: 5px;
           overflow: hidden;
         }
 
@@ -678,7 +678,7 @@
         }
 
         .progress-text {
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 500;
           color: rgba(255, 255, 255, 0.65);
           white-space: nowrap;
@@ -687,19 +687,19 @@
         .motivational-text {
           text-align: center;
           color: rgba(255, 255, 255, 0.6);
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 500;
-          margin-top: 12px;
+          margin-top: 8px;
         }
 
         .boost-button {
           width: 100%;
-          padding: 12px;
-          margin-top: 16px;
+          padding: 10px;
+          margin-top: 10px;
           background: #e2ff3b;
           border: none;
           border-radius: 9999px;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 700;
           color: #000000;
           cursor: pointer;
@@ -829,14 +829,53 @@
         }
 
         .goal-card {
-          width: 320px;
-          max-width: 85vw;
+          width: 260px;
+          max-width: 75vw;
+          padding: 12px;
+          border-radius: 14px;
         }
 
         .goal-card[data-card="1"] {
           left: 50%;
-          transform: translateX(-50%) rotate(-5deg);
+          transform: translateX(-50%) rotate(-5deg) scale(0.9);
           bottom: 10px;
+        }
+
+        .goal-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        .goal-icon svg {
+          width: 16px;
+          height: 16px;
+        }
+
+        .goal-name {
+          font-size: 14px;
+        }
+
+        .current-amount {
+          font-size: 17px;
+        }
+
+        .target-amount {
+          font-size: 13px;
+        }
+
+        .progress-text {
+          font-size: 10px;
+        }
+
+        .motivational-text {
+          font-size: 11px;
+          margin-top: 6px;
+        }
+
+        .boost-button {
+          padding: 8px;
+          margin-top: 8px;
+          font-size: 12px;
         }
       }
 
