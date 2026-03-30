@@ -32,7 +32,7 @@
           sans-serif;
         background: radial-gradient(
           ellipse 60% 80% at 35% 50%,
-          #1a1a1a 0%,
+          #383838 0%,
           #000000 100%
         );
         background-attachment: fixed;
@@ -437,15 +437,6 @@
 
       footer {
         display: none;
-        text-align: center;
-        font-size: 0.75rem;
-        color: #666666;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        background: transparent;
       }
 
       footer a {
@@ -464,9 +455,23 @@
         justify-content: center;
       }
 
+      .footer-copyright {
+        display: block;
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        color: #666666;
+      }
+
       @media (max-width: 1200px) {
         body {
           overflow-y: auto;
+        }
+
+        .footer-copyright {
+          display: none;
         }
 
         main {
@@ -766,6 +771,13 @@
         footer {
           display: block;
           position: static;
+          justify-content: center;
+          bottom: auto;
+          margin-top: 2rem;
+        }
+
+        .footer-copyright {
+          display: none;
         }
 
         .footer-links {
@@ -1017,6 +1029,7 @@
             >
           </div>
         </footer>
+        <div class="footer-copyright" id="footerCopyright">© 2026 NOPE. All rights reserved.</div>
       </div>
 
       <div class="phone-main">
@@ -1345,6 +1358,12 @@
         if (footerLinks.length > 0) {
           footerLinks[0].textContent = content.footer.privacy;
           footerLinks[1].textContent = content.footer.terms;
+        }
+
+        // Update copyright
+        const footerCopyright = document.getElementById("footerCopyright");
+        if (footerCopyright) {
+          footerCopyright.textContent = content.footer.copyright;
         }
 
         // Update desktop phone mockups
