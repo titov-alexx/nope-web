@@ -332,10 +332,14 @@
 
       .phone-main {
         position: relative;
+        margin-left: auto;
+        margin-right: auto;
         width: 100%;
-        max-width: 550px;
-        margin-top: -20px;
-        height: auto;
+        max-width: 420px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: transparent;
         overflow: visible;
         z-index: 9999;
@@ -344,27 +348,23 @@
       .phone-main-front,
       .phone-main-rear {
         width: 100%;
-        max-width: 270px;
         height: auto;
         display: block;
+        position: absolute;
       }
 
       .phone-main-front {
-        position: relative;
+        left: 190px;
         z-index: 2;
-        margin-left: 140px;
-        transform: rotate(-10deg);
         filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.6))
           drop-shadow(0 50px 120px rgba(0, 0, 0, 0.5));
       }
 
       .phone-main-rear {
-        position: absolute;
-        transform: rotate(10deg);
-        top: -100px;
-        right: -150px;
+        left: -30px;
         z-index: 1;
-        opacity: 0.8;
+        filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.6))
+          drop-shadow(0 50px 120px rgba(0, 0, 0, 0.5));
       }
 
       .feature-icon svg {
@@ -576,7 +576,7 @@
           width: 320px;
           min-width: 280px;
           max-width: 32vw;
-          box-shadow: 
+          box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
           opacity: 0.95;
@@ -1017,15 +1017,15 @@
 
       <div class="phone-main">
         <img
-          src="assets/phone-back-en.svg"
-          alt="NOPE App - Background"
-          id="rearPhoneMockup"
+          src="assets/phone-front-left-en.svg"
+          alt="NOPE App - Left"
+          id="leftPhoneMockup"
           class="phone-main-rear"
         />
         <img
-          src="assets/phone-front-en.svg"
-          alt="NOPE App"
-          id="mainPhoneMockup"
+          src="assets/phone-front-right-en.svg"
+          alt="NOPE App - Right"
+          id="rightPhoneMockup"
           class="phone-main-front"
         />
       </div>
@@ -1171,8 +1171,8 @@
             phone1: "assets/phone-1.svg",
             phone2: "assets/phone-2.svg",
             phone3: "assets/phone-3.svg",
-            phoneFront: "assets/phone-front-en.svg",
-            phoneRear: "assets/phone-back-en.svg",
+            phoneLeft: "assets/phone-front-left-en.svg",
+            phoneRight: "assets/phone-front-right-en.svg",
             phoneMobile: "assets/phone-front-en.svg",
           },
           goals: [
@@ -1217,8 +1217,8 @@
             phone1: "assets/phone-1-es.svg",
             phone2: "assets/phone-2-es.svg",
             phone3: "assets/phone-3-es.svg",
-            phoneFront: "assets/phone-front-es.svg",
-            phoneRear: "assets/phone-back-es.svg",
+            phoneLeft: "assets/phone-front-left-es.svg",
+            phoneRight: "assets/phone-front-right-es.svg",
             phoneMobile: "assets/phone-front-es.svg",
           },
           goals: [
@@ -1263,8 +1263,8 @@
             phone1: "assets/phone-1-pt.svg",
             phone2: "assets/phone-2-pt.svg",
             phone3: "assets/phone-3-pt.svg",
-            phoneFront: "assets/phone-front-pt.svg",
-            phoneRear: "assets/phone-back-pt.svg",
+            phoneLeft: "assets/phone-front-left-pt.svg",
+            phoneRight: "assets/phone-front-right-pt.svg",
             phoneMobile: "assets/phone-front-pt.svg",
           },
           goals: [
@@ -1309,8 +1309,8 @@
             phone1: "assets/phone-1-ua.svg",
             phone2: "assets/phone-2-ua.svg",
             phone3: "assets/phone-3-ua.svg",
-            phoneFront: "assets/phone-front-ua.svg",
-            phoneRear: "assets/phone-back-ua.svg",
+            phoneLeft: "assets/phone-front-left-ua.svg",
+            phoneRight: "assets/phone-front-right-ua.svg",
             phoneMobile: "assets/phone-front-ua.svg",
           },
           goals: [
@@ -1392,13 +1392,13 @@
         }
 
         // Update desktop phone mockups
-        const mainPhoneMockup = document.getElementById("mainPhoneMockup");
-        const rearPhoneMockup = document.getElementById("rearPhoneMockup");
-        if (mainPhoneMockup) {
-          mainPhoneMockup.src = content.images.phoneFront;
+        const leftPhoneMockup = document.getElementById("leftPhoneMockup");
+        const rightPhoneMockup = document.getElementById("rightPhoneMockup");
+        if (leftPhoneMockup) {
+          leftPhoneMockup.src = content.images.phoneLeft;
         }
-        if (rearPhoneMockup) {
-          rearPhoneMockup.src = content.images.phoneRear;
+        if (rightPhoneMockup) {
+          rightPhoneMockup.src = content.images.phoneRight;
         }
 
         // Update goal cards
