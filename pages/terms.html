@@ -12,6 +12,12 @@
       rel="stylesheet"
     />
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
         font-family:
           "Inter",
@@ -19,13 +25,35 @@
           BlinkMacSystemFont,
           "Segoe UI",
           sans-serif;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 48px 24px;
         line-height: 1.7;
         color: #e0e0e0;
         background: #000000;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
+
+      header {
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.75rem;
+        font-weight: 900;
+        color: #c4ff0d;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .logo:hover {
+        opacity: 0.9;
+        text-decoration: none;
+      }
+
       .back-button {
         display: inline-flex;
         align-items: center;
@@ -35,16 +63,170 @@
         transition: opacity 0.2s ease;
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.05);
+        padding: 0.5rem;
       }
+
       .back-button:hover {
         opacity: 0.7;
         text-decoration: none;
         background: rgba(255, 255, 255, 0.08);
       }
+
       .back-button svg {
         width: 20px;
         height: 20px;
       }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .header-links {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .header-links a {
+        color: #666666;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .header-links a:hover {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .header-links a.active {
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      .language-picker {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #ffffff;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 0.5rem 0.875rem;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .language-picker:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .language-picker svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .language-dropdown {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 0.5rem 0;
+        min-width: 120px;
+        display: none;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+      }
+
+      .language-picker.active .language-dropdown {
+        display: block;
+      }
+
+      .language-option {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        color: #999999;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .language-option:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+      }
+
+      .language-option.selected {
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      .cta-button {
+        background: #ffffff;
+        color: #000000;
+        padding: 0.75rem 1.75rem;
+        border-radius: 24px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.2s ease, background 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .cta-button:hover {
+        background: #f0f0f0;
+        transform: translateY(-1px);
+        text-decoration: none;
+      }
+
+      main {
+        flex: 1;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 48px 24px;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem 1.5rem;
+        }
+
+        .header-links {
+          display: none;
+        }
+
+        .language-picker {
+          font-size: 0.8rem;
+          padding: 0.4rem 0.7rem;
+        }
+
+        .cta-button {
+          padding: 0.625rem 1.25rem;
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .header-right {
+          gap: 0.75rem;
+        }
+      }
+
       h1 {
         font-size: 2rem;
         margin-top: 2rem;
@@ -78,28 +260,67 @@
       a:hover {
         text-decoration: underline;
       }
-      .updated {
-        color: #808080;
-        font-size: 0.9rem;
-      }
     </style>
   </head>
   <body>
-    <a href="/" class="back-button">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M15 18l-6-6 6-6" />
-      </svg>
-    </a>
-    <h1 id="pageTitle">Terms of Service</h1>
+    <header>
+      <a href="/" class="logo">NOPE.</a>
+      <div class="header-right">
+        <div class="header-links">
+          <a href="privacy.html" class="privacy-link">Privacy Policy</a>
+          <a href="terms.html" class="terms-link active">Terms of Service</a>
+        </div>
+        <div class="language-picker" id="languagePicker">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path
+              d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path>
+          </svg>
+          <span id="currentLang">EN</span>
+          <svg
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            style="width: 12px; height: 12px"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <div class="language-dropdown">
+            <div class="language-option selected" data-lang="EN">EN</div>
+            <div class="language-option" data-lang="ES">ES</div>
+            <div class="language-option" data-lang="PT">PT</div>
+            <div class="language-option" data-lang="UA">UA</div>
+          </div>
+        </div>
+        <a href="https://apps.apple.com/app/nope" class="cta-button">Give it a try</a>
+      </div>
+    </header>
 
-    <div id="content"></div>
+    <main>
+      <a href="/" class="back-button">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </a>
+      <h1 id="pageTitle">Terms of Service</h1>
+
+      <div id="content"></div>
 
     <footer
       style="
@@ -114,12 +335,16 @@
     >
       © 2026 NOPE. All rights reserved.
     </footer>
+    </main>
 
     <script>
       const locales = {
         EN: {
           title: "Terms of Service",
           footer: "© 2026 NOPE. All rights reserved.",
+          navPrivacy: "Privacy Policy",
+          navTerms: "Terms of Service",
+          cta: "Give it a try",
           content: `
             <p>
               Welcome to NOPE. By downloading, installing, or using the NOPE app
@@ -226,6 +451,9 @@
         ES: {
           title: "Términos de Servicio",
           footer: "© 2026 NOPE. Todos los derechos reservados.",
+          navPrivacy: "Política de Privacidad",
+          navTerms: "Términos de Servicio",
+          cta: "Pruébalo",
           content: `
             <p>
               Bienvenido a NOPE. Al descargar, instalar o usar la aplicación NOPE
@@ -330,6 +558,9 @@
         PT: {
           title: "Termos de Serviço",
           footer: "© 2026 NOPE. Todos os direitos reservados.",
+          navPrivacy: "Política de Privacidade",
+          navTerms: "Termos de Serviço",
+          cta: "Experimente",
           content: `
             <p>
               Bem-vindo ao NOPE. Ao baixar, instalar ou usar o aplicativo NOPE
@@ -434,6 +665,9 @@
         UA: {
           title: "Умови Використання",
           footer: "© 2026 NOPE. Всі права захищені.",
+          navPrivacy: "Політика Конфіденційності",
+          navTerms: "Умови Використання",
+          cta: "Спробувати",
           content: `
             <p>
               Ласкаво просимо до NOPE. Завантажуючи, встановлюючи або використовуючи додаток NOPE
@@ -549,6 +783,39 @@
       document.getElementById("footer").textContent = content.footer;
       document.documentElement.lang = currentLocale.toLowerCase();
       document.title = content.title + " - NOPE";
+
+      // Update header
+      document.querySelector(".privacy-link").textContent = content.navPrivacy;
+      document.querySelector(".terms-link").textContent = content.navTerms;
+      document.querySelector(".cta-button").textContent = content.cta;
+
+      // Language picker functionality
+      const languagePicker = document.getElementById("languagePicker");
+      const currentLang = document.getElementById("currentLang");
+      const languageOptions = document.querySelectorAll(".language-option");
+
+      // Initialize with saved locale
+      currentLang.textContent = currentLocale;
+      languageOptions.forEach((opt) => {
+        opt.classList.toggle("selected", opt.dataset.lang === currentLocale);
+      });
+
+      languagePicker.addEventListener("click", (e) => {
+        e.stopPropagation();
+        languagePicker.classList.toggle("active");
+      });
+
+      languageOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          const selectedLang = option.dataset.lang;
+          localStorage.setItem("nope-locale", selectedLang);
+          location.reload();
+        });
+      });
+
+      document.addEventListener("click", () => {
+        languagePicker.classList.remove("active");
+      });
     </script>
   </body>
 </html>
