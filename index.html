@@ -3,15 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOPE - Saving Made Fun</title>
+    <title>NOPE - Turn impulse spending into visible progress</title>
     <link rel="icon" type="image/png" href="assets/nope-icon-rounded.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: #040404;
+        --bg-soft: #0a0a0b;
+        --surface: rgba(20, 20, 22, 0.72);
+        --surface-strong: #111112;
+        --surface-dark: #050506;
+        --text: #f5f5f6;
+        --muted: #96969d;
+        --line: rgba(255, 255, 255, 0.1);
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+        --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.3);
+        --accent: #d8d8dc;
+        --accent-soft: #7d7d84;
+        --accent-faint: #2a2a2e;
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --max-width: 1180px;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -19,8 +39,8 @@
       }
 
       html {
-        background: #000000;
-        overflow-x: hidden;
+        scroll-behavior: smooth;
+        background: var(--bg-soft);
       }
 
       body {
@@ -30,217 +50,165 @@
           BlinkMacSystemFont,
           "Segoe UI",
           sans-serif;
-        background: radial-gradient(
-          ellipse 60% 80% at 35% 50%,
-          #383838 0%,
-          #000000 100%
-        );
-        background-attachment: fixed;
-        color: #ffffff;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top center, rgba(255, 255, 255, 0.05), transparent 22%),
+          radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.035), transparent 30%),
+          linear-gradient(180deg, #0b0b0c 0%, #050506 52%, #09090a 100%);
         min-height: 100vh;
-        height: 100vh;
-        min-width: 960px;
-        display: flex;
-        flex-direction: column;
-        overflow-x: hidden;
-        overflow-y: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page-shell {
         position: relative;
+        overflow: hidden;
       }
 
-      body::after {
+      .page-shell::before,
+      .page-shell::after {
         content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 1;
-        z-index: 0;
-        background-image:
-          radial-gradient(
-            circle at 20% 30%,
-            rgba(255, 255, 255, 0.15) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 45% 60%,
-            rgba(255, 255, 255, 0.12) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 70% 25%,
-            rgba(255, 255, 255, 0.14) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 85% 70%,
-            rgba(255, 255, 255, 0.1) 1.5px,
-            transparent 1.5px
-          ),
-          radial-gradient(
-            circle at 15% 80%,
-            rgba(255, 255, 255, 0.12) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 90% 45%,
-            rgba(255, 255, 255, 0.14) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 35% 15%,
-            rgba(255, 255, 255, 0.1) 1.5px,
-            transparent 1.5px
-          ),
-          radial-gradient(
-            circle at 55% 90%,
-            rgba(255, 255, 255, 0.12) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 10% 50%,
-            rgba(255, 255, 255, 0.11) 1.5px,
-            transparent 1.5px
-          ),
-          radial-gradient(
-            circle at 30% 70%,
-            rgba(255, 255, 255, 0.13) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 50% 35%,
-            rgba(255, 255, 255, 0.12) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 75% 55%,
-            rgba(255, 255, 255, 0.15) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 95% 15%,
-            rgba(255, 255, 255, 0.1) 1.5px,
-            transparent 1.5px
-          ),
-          radial-gradient(
-            circle at 25% 45%,
-            rgba(255, 255, 255, 0.12) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 65% 85%,
-            rgba(255, 255, 255, 0.11) 1.5px,
-            transparent 1.5px
-          ),
-          radial-gradient(
-            circle at 40% 95%,
-            rgba(255, 255, 255, 0.13) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 80% 10%,
-            rgba(255, 255, 255, 0.14) 2px,
-            transparent 2px
-          ),
-          radial-gradient(
-            circle at 5% 65%,
-            rgba(255, 255, 255, 0.1) 1.5px,
-            transparent 1.5px
-          );
-        background-size:
-          250px 250px,
-          300px 300px,
-          280px 280px,
-          220px 220px,
-          260px 260px,
-          240px 240px,
-          290px 290px,
-          270px 270px,
-          230px 230px,
-          310px 310px,
-          275px 275px,
-          245px 245px,
-          265px 265px,
-          285px 285px,
-          255px 255px,
-          235px 235px,
-          295px 295px,
-          215px 215px;
-        pointer-events: none;
-      }
-
-      header {
-        padding: 1.5rem 2rem;
         position: absolute;
+        inset: auto;
+        border-radius: 999px;
+        filter: blur(50px);
+        pointer-events: none;
+        opacity: 0.55;
+      }
+
+      .page-shell::before {
+        width: 360px;
+        height: 360px;
+        top: 90px;
+        left: -80px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .page-shell::after {
+        width: 440px;
+        height: 440px;
+        top: 260px;
+        right: -150px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
+        z-index: 50;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background: rgba(6, 6, 7, 0.78);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .site-header .container {
         display: flex;
+        align-items: center;
         justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0;
+      }
+
+      .brand {
+        display: inline-flex;
         align-items: center;
+        gap: 12px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.45rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
       }
 
-      .logo {
-        font-size: 1.75rem;
-        font-weight: 900;
+      .brand-name {
         color: #c4ff0d;
-        letter-spacing: 0.02em;
       }
 
-      .header-right {
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #151517, #2d2d31);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        display: grid;
+        place-items: center;
+      }
+
+      .brand-mark img {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+      }
+
+      .nav-group {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 14px;
       }
 
       .header-links {
         display: flex;
-        gap: 1.5rem;
-        font-size: 0.875rem;
+        align-items: center;
+        gap: 18px;
       }
 
       .header-links a {
-        color: #666666;
-        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 500;
         transition: color 0.2s ease;
       }
 
       .header-links a:hover {
-        color: #ffffff;
+        color: var(--text);
       }
 
       .language-picker {
         position: relative;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        color: #ffffff;
-        font-size: 0.875rem;
-        font-weight: 500;
+        gap: 10px;
+        border: 1px solid var(--line);
+        background: rgba(18, 18, 20, 0.82);
+        padding: 10px 14px;
+        border-radius: 999px;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 600;
         cursor: pointer;
-        padding: 0.5rem 0.875rem;
-      }
-
-      .language-picker:hover {
+        box-shadow: var(--shadow-soft);
       }
 
       .language-picker svg {
         width: 16px;
         height: 16px;
+        flex-shrink: 0;
       }
 
       .language-dropdown {
         position: absolute;
-        top: calc(100% + 0.5rem);
+        top: calc(100% + 10px);
         right: 0;
-        background: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 12px;
-        padding: 0.5rem 0;
-        min-width: 120px;
+        min-width: 124px;
+        padding: 8px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(14, 14, 15, 0.96);
+        box-shadow: var(--shadow);
         display: none;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
       }
 
       .language-picker.active .language-dropdown {
@@ -248,1197 +216,1464 @@
       }
 
       .language-option {
-        padding: 0.75rem 1rem;
-        cursor: pointer;
-        color: #999999;
-        font-size: 0.875rem;
-        font-weight: 500;
+        padding: 10px 12px;
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
         transition:
           background 0.2s ease,
           color 0.2s ease;
       }
 
-      .language-option:hover {
-        background: rgba(255, 255, 255, 0.05);
-        color: #ffffff;
-      }
-
+      .language-option:hover,
       .language-option.selected {
-        color: #ffffff;
-        font-weight: 600;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.06);
       }
 
-      .cta-button {
-        background: #ffffff;
-        color: #000000;
-        padding: 0.75rem 1.75rem;
-        border-radius: 24px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition:
-          transform 0.2s ease,
-          background 0.2s ease;
-        display: inline-block;
-      }
-
-      .cta-button:hover {
-        background: #f0f0f0;
-        transform: translateY(-1px);
-      }
-
-      main {
-        flex: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        justify-content: center;
-        gap: 4rem;
-        padding: 2rem 4rem;
-        padding-top: 200px;
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 100%;
-        position: relative;
-      }
-
-      .hero {
-        max-width: 600px;
-        text-align: left;
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 6vw, 5rem);
-        font-weight: 900;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        color: #ffffff;
-      }
-
-      .hero p {
-        font-size: clamp(1rem, 1.5vw, 1.125rem);
-        font-weight: 400;
-        color: #a0a0a0;
-        margin-bottom: 2.5rem;
-        line-height: 1.5;
-      }
-
-      .phone-main {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        max-width: 420px;
-        height: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        overflow: visible;
-        z-index: 9999;
-      }
-
-      .phone-main-front,
-      .phone-main-rear {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: absolute;
-      }
-
-      .phone-main-front {
-        left: 190px;
-        z-index: 2;
-        filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.6))
-          drop-shadow(0 50px 120px rgba(0, 0, 0, 0.5));
-      }
-
-      .phone-main-rear {
-        left: -30px;
-        z-index: 1;
-        filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.6))
-          drop-shadow(0 50px 120px rgba(0, 0, 0, 0.5));
-      }
-
-      .feature-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      .feature:nth-child(1) .feature-icon {
-        color: #ff6b00;
-      }
-
-      .feature:nth-child(2) .feature-icon {
-        color: #ffffff;
-      }
-
-      .feature:nth-child(3) .feature-icon {
-        color: #4a90e2;
-      }
-
-      .feature:nth-child(4) .feature-icon {
-        color: #ffd700;
-      }
-
-      .feature-text {
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: #ffffff;
-        line-height: 1.4;
-      }
-
-      .app-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .app-button {
-        background: #ffffff;
-        color: #000000;
-        padding: 0.875rem 1.5rem;
-        border-radius: 12px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition:
-          transform 0.2s ease,
-          background 0.2s ease;
+      .button-primary,
+      .button-secondary {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 999px;
+        font-weight: 700;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
       }
 
-      .app-button:hover {
-        background: #f0f0f0;
+      .button-primary {
+        background: linear-gradient(180deg, #ffffff 0%, #ececef 100%);
+        color: #0a0a0b;
+        padding: 15px 24px;
+        box-shadow: 0 12px 26px rgba(255, 255, 255, 0.08);
+      }
+
+      .button-primary:hover,
+      .button-secondary:hover {
         transform: translateY(-2px);
       }
 
-      .app-button svg {
-        width: 20px;
-        height: 20px;
+      .button-secondary {
+        padding: 15px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(16, 16, 18, 0.78);
+        color: var(--text);
+        box-shadow: var(--shadow-soft);
       }
 
-      .phone-mockups {
-        display: none;
+      .hero {
+        padding: 82px 0 42px;
       }
 
-      .phone-mockups-mobile {
-        display: none;
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
+        gap: 88px;
+        align-items: center;
       }
 
-      footer {
-        display: none;
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #d7d7dc;
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
       }
 
-      footer a {
-        color: #666666;
-        text-decoration: none;
-        transition: color 0.2s ease;
+      .hero h1,
+      .section-copy h2,
+      .section-intro h2,
+      .final-cta h2 {
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: -0.05em;
       }
 
-      footer a:hover {
-        color: #ffffff;
+      .hero h1 {
+        font-size: clamp(3.2rem, 7vw, 5.7rem);
+        line-height: 0.95;
+        max-width: 11ch;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        max-width: 560px;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-orb {
+        position: absolute;
+        width: 460px;
+        height: 560px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.1), transparent 34%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.008));
+        filter: blur(42px);
+        opacity: 0.34;
+      }
+
+      .device-stage {
+        position: relative;
+        width: min(100%, 500px);
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .device-phone {
+        position: absolute;
+        width: min(100%, 328px);
+        filter: drop-shadow(0 32px 72px rgba(0, 0, 0, 0.42));
+        z-index: 2;
+      }
+
+      .device-phone-back {
+        left: 18px;
+        transform: translateY(20px) scale(0.98);
+        opacity: 0.9;
+        z-index: 1;
+      }
+
+      .device-phone-front {
+        right: -10px;
+        transform: scale(1);
+      }
+
+      .progress-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .progress-track {
+        flex: 1;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        width: 57%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #bcbcc2, #f5f5f6);
+      }
+
+      .progress-text {
+        font-size: 0.82rem;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .insight-metric {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .insight-metric strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2.1rem;
+        letter-spacing: -0.05em;
+      }
+
+      .section {
+        padding: 44px 0;
+      }
+
+      .section-intro {
+        max-width: 760px;
+        margin-bottom: 34px;
+      }
+
+      .section-intro span {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .section-intro h2 {
+        font-size: clamp(2.2rem, 4vw, 3.6rem);
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+
+      .section-intro p {
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 1.03rem;
+      }
+
+      .simple-steps {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .simple-step {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 0;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #e8e8ea;
+        display: grid;
+        place-items: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        flex-shrink: 0;
+      }
+
+      .simple-step h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        margin-bottom: 8px;
+      }
+
+      .simple-step p {
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 56ch;
+      }
+
+      .final-cta {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 36px 0 14px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas: "title actions";
+        column-gap: 36px;
+        align-items: center;
+        text-align: left;
+      }
+
+      .final-cta h2 {
+        grid-area: title;
+        font-size: clamp(2rem, 3.3vw, 3rem);
+        line-height: 1;
+        margin-bottom: 0;
+      }
+
+      .final-cta .hero-actions {
+        grid-area: actions;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .final-pricing-note {
+        margin-top: 0;
+        color: var(--muted);
+        font-size: 0.61rem;
+      }
+
+      .site-footer {
+        padding: 34px 0 44px;
+      }
+
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .footer-links {
         display: flex;
-        gap: 1.5rem;
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        color: var(--muted);
       }
 
-      .footer-copyright {
-        display: block;
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.75rem;
-        color: #666666;
+      .footer-links a:hover {
+        color: var(--text);
       }
 
-      @media (max-width: 1200px) {
-        body {
-          overflow-y: auto;
+      .footer-copy {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .float {
+        animation: floaty 6s ease-in-out infinite;
+      }
+
+      .float-delayed {
+        animation: floaty 7.5s ease-in-out infinite;
+      }
+
+      @keyframes floaty {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
         }
 
-        .footer-copyright {
-          display: none;
-        }
-
-        main {
-          display: flex;
-          flex-direction: column;
-          padding-top: 100px !important;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
-          padding-bottom: 320px;
-        }
-
-        .hero {
-          text-align: center;
-          max-width: 1200px;
-        }
-
-        .hero p {
-          max-width: 800px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .app-buttons {
-          justify-content: center;
-        }
-
-        .features {
-          max-width: 1000px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .phone-main {
-          display: none;
-        }
-
-        .phone-mockups {
-          display: none;
-        }
-
-        .phone-mockups-mobile {
-          position: fixed;
-          bottom: 100px;
-          left: 0;
-          right: 0;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          z-index: 1;
-          width: 100%;
-        }
-
-        .goal-cards-container {
-          position: relative;
-          width: 100%;
-          height: 400px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          padding-bottom: 20px;
-        }
-
-        .goal-card {
-          position: absolute;
-          background: rgba(30, 30, 30, 0.4);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 16px;
-          padding: 14px;
-          width: 280px;
-          min-width: 240px;
-          max-width: 85vw;
-          box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          opacity: 0.95;
-        }
-
-        .goal-card[data-card="1"] {
-          left: 10%;
-          bottom: 20px;
-          transform: rotate(-8deg);
-          z-index: 3;
-        }
-
-        .goal-card[data-card="2"] {
-          left: 50%;
-          transform: translateX(-50%) rotate(3deg);
-          bottom: 0;
-          z-index: 2;
-        }
-
-        .goal-card[data-card="3"] {
-          right: 10%;
-          bottom: 15px;
-          transform: rotate(6deg);
-          z-index: 1;
-        }
-
-        .goal-header {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 6px;
-        }
-
-        .goal-icon {
-          width: 28px;
-          height: 28px;
-          border-radius: 8px;
-          background: rgba(255, 255, 255, 0.06);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .goal-icon[data-category="vacation"] {
-          color: #3b82f6;
-        }
-
-        .goal-icon[data-category="home"] {
-          color: #f97316;
-        }
-
-        .goal-icon[data-category="gaming"] {
-          color: #3b82f6;
-        }
-
-        .goal-icon svg {
-          width: 18px;
-          height: 18px;
-        }
-
-        .goal-name {
-          font-size: 15px;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.8);
-        }
-
-        .goal-amounts {
-          display: flex;
-          align-items: center;
-          margin-top: 3px;
-        }
-
-        .current-amount {
-          font-size: 19px;
-          font-weight: 500;
-        }
-
-        .current-amount[data-category="vacation"] {
-          color: #3b82f6;
-        }
-
-        .current-amount[data-category="home"] {
-          color: #f97316;
-        }
-
-        .current-amount[data-category="gaming"] {
-          color: #3b82f6;
-        }
-
-        .amount-separator {
-          font-size: 12px;
-          color: rgba(255, 255, 255, 0.4);
-        }
-
-        .target-amount {
-          font-size: 14px;
-          font-weight: 500;
-          color: rgba(255, 255, 255, 0.65);
-        }
-
-        .progress-container {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: 8px;
-        }
-
-        .progress-bar {
-          flex: 1;
-          height: 8px;
-          background: rgba(255, 255, 255, 0.08);
-          border-radius: 5px;
-          overflow: hidden;
-        }
-
-        .progress-fill {
-          height: 100%;
-          border-radius: 6px;
-          transition: width 0.3s ease;
-        }
-
-        .progress-fill[data-category="vacation"] {
-          background: #3b82f6;
-        }
-
-        .progress-fill[data-category="home"] {
-          background: #f97316;
-        }
-
-        .progress-fill[data-category="gaming"] {
-          background: #3b82f6;
-        }
-
-        .progress-text {
-          font-size: 11px;
-          font-weight: 500;
-          color: rgba(255, 255, 255, 0.65);
-          white-space: nowrap;
-        }
-
-        .motivational-text {
-          text-align: center;
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 12px;
-          font-weight: 500;
-          margin-top: 8px;
-        }
-
-        .boost-button {
-          width: 100%;
-          padding: 10px;
-          margin-top: 10px;
-          background: #e2ff3b;
-          border: none;
-          border-radius: 9999px;
-          font-size: 13px;
-          font-weight: 700;
-          color: #000000;
-          cursor: pointer;
-          transition: opacity 0.2s ease;
-        }
-
-        .boost-button:hover {
-          opacity: 0.9;
-        }
-
-        .phone-mockups-mobile img {
-          width: min(315px, 81vw);
-          height: auto;
-          display: block;
-        }
-
-        .features {
-          margin-bottom: 2rem;
-        }
-
-        .hero p {
-          margin-bottom: 2rem;
+        .hero-visual {
+          min-height: 620px;
+          order: -1;
         }
 
         .hero h1 {
-          margin-bottom: 1.5rem;
+          max-width: 13ch;
         }
       }
 
-      @media (max-width: 920px) {
-        body {
-          min-width: 0;
+      @media (max-width: 820px) {
+        .site-header .container,
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
         }
 
-        body::after {
-          background-size:
-            400px 400px,
-            450px 450px,
-            500px 500px,
-            350px 350px,
-            420px 420px,
-            380px 380px,
-            460px 460px,
-            440px 440px,
-            370px 370px,
-            480px 480px,
-            410px 410px,
-            390px 390px,
-            430px 430px,
-            470px 470px,
-            400px 400px,
-            360px 360px,
-            490px 490px,
-            340px 340px;
+        .nav-group {
+          width: 100%;
+          flex-wrap: wrap;
         }
 
-        header {
-          padding: 1rem 1.5rem;
-          position: relative;
+        .hero {
+          padding-top: 34px;
+        }
+
+        .hero-visual {
+          min-height: 560px;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.8rem, 12vw, 4.5rem);
+        }
+
+        .simple-steps {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .simple-step {
+          padding: 20px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .final-cta {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "title"
+            "actions";
+          justify-items: start;
+        }
+
+        .final-cta .hero-actions {
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .container {
+          width: min(var(--max-width), calc(100% - 28px));
         }
 
         .header-links {
-          display: none;
-        }
-
-        footer {
-          display: block;
-          position: static;
-          justify-content: center;
-          bottom: auto;
-          margin-top: 2rem;
-          z-index: 100;
-        }
-
-        .footer-copyright {
-          display: none;
-        }
-
-        .footer-links {
           width: 100%;
-          display: flex;
-          justify-content: center;
-          padding: 0 20px;
-          gap: 1.5rem;
-          z-index: 100;
-          margin-top: 1.5rem;
-          position: relative;
+          order: 3;
+          justify-content: space-between;
         }
 
-        footer a {
-          color: #666666;
+        .button-primary,
+        .button-secondary {
+          width: 100%;
         }
 
-        footer a:hover {
-          color: #ffffff;
+        .hero-actions {
+          flex-direction: column;
         }
 
-        .header-right {
-          gap: 0.75rem;
+        .hero-visual {
+          min-height: 440px;
         }
 
-        .language-picker {
-          font-size: 0.8rem;
-          padding: 0.4rem 0.7rem;
-        }
-      }
-
-      @media (max-width: 960px) {
-        .goal-card[data-card="3"] {
-          display: none;
+        .device-stage {
+          width: min(100%, 320px);
+          min-height: 560px;
         }
 
-        .goal-card {
-          width: 300px;
-          max-width: 40vw;
+        .device-phone {
+          width: min(100%, 250px);
         }
 
-        .goal-card[data-card="1"] {
-          left: 20%;
-          bottom: 20px;
-          transform: rotate(-7deg);
+        .device-phone-back {
+          left: 6px;
+          transform: translateY(14px) scale(0.98);
         }
 
-        .goal-card[data-card="2"] {
-          right: 20%;
-          left: auto;
-          bottom: 10px;
-          transform: rotate(8deg);
-        }
-      }
-
-      @media (max-width: 760px) {
-        .goal-card[data-card="1"],
-        .goal-card[data-card="2"],
-        .goal-card[data-card="3"] {
-          display: none;
+        .device-phone-front {
+          right: -14px;
+          transform: scale(1);
         }
 
-        .phone-mockups-mobile {
-          display: none;
-        }
-
-        .goal-card {
-          width: 260px;
-          max-width: 75vw;
-          padding: 12px;
-          border-radius: 14px;
-        }
-
-        .goal-card[data-card="1"] {
-          left: 50%;
-          transform: translateX(-50%) rotate(-5deg) scale(0.9);
-          bottom: 10px;
-        }
-
-        .goal-icon {
-          width: 24px;
-          height: 24px;
-        }
-
-        .goal-icon svg {
-          width: 16px;
-          height: 16px;
-        }
-
-        .goal-name {
-          font-size: 14px;
-        }
-
-        .current-amount {
-          font-size: 17px;
-        }
-
-        .target-amount {
-          font-size: 13px;
-        }
-
-        .progress-text {
-          font-size: 10px;
-        }
-
-        .motivational-text {
-          font-size: 11px;
-          margin-top: 6px;
-        }
-
-        .boost-button {
-          padding: 8px;
-          margin-top: 8px;
-          font-size: 12px;
-        }
-      }
-
-      @media (max-width: 700px) {
-        header {
-          padding: 1rem;
-        }
-
-        main {
-          padding: 1.5rem 1rem;
-          padding-top: 80px;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .hero {
-          margin-top: -100px;
-        }
-
-        .hero h1 {
-          font-size: 3rem;
-        }
-
-        .hero p {
-          font-size: 0.95rem;
-        }
-
-        .feature {
-          padding: 1rem;
-        }
-
-        .phone-mockups-mobile {
-          bottom: 50px;
-        }
-
-        .goal-card[data-card="1"] {
-          bottom: 10px;
-        }
-      }
-
-      @media (max-width: 430px) {
-        .phone-mockups-mobile {
-          bottom: 100px;
-        }
-
-        .goal-card[data-card="1"] {
-          bottom: 30px;
-        }
-      }
-
-      @media (max-width: 380px) {
-        .phone-mockups-mobile {
-          display: none;
-        }
-
-        main {
-          padding-bottom: 2rem;
-        }
-      }
-
-      @media (max-height: 700px) {
-        .phone-mockups {
-          display: none;
+        .simple-step {
+          gap: 14px;
         }
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="logo">NOPE.</div>
-      <div class="header-right">
-        <div class="header-links">
-          <a href="pages/privacy.html" class="privacy-link">Privacy Policy</a>
-          <a href="pages/terms.html" class="terms-link">Terms of Service</a>
-        </div>
-        <div class="language-picker" id="languagePicker">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path
-              d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-            ></path>
-          </svg>
-          <span id="currentLang">EN</span>
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            style="width: 12px; height: 12px"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-          <div class="language-dropdown">
-            <div class="language-option selected" data-lang="EN">EN</div>
-            <div class="language-option" data-lang="ES">ES</div>
-            <div class="language-option" data-lang="PT">PT</div>
-            <div class="language-option" data-lang="UA">UA</div>
-          </div>
-        </div>
-        <a href="https://apps.apple.com/app/id6759533856" class="cta-button"
-          >Give it a try</a
-        >
-      </div>
-    </header>
-
-    <main>
-      <div class="hero">
-        <h1>Turn impulse spending into savings.</h1>
-        <p>
-          Most apps track what you already spent. NOPE stops you before you do.
-          Start by creating a goal. Every skipped purchase brings you closer to
-          it — and the achievements and analytics help you understand yourself
-          better along the way.
-        </p>
-
-        <div class="app-buttons">
-          <a
-            href="https://apps.apple.com/app/id6759533856"
-            class="app-button"
-            aria-label="Download on the App Store"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"
-              />
-            </svg>
-            Download on the App Store
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container">
+          <a href="#" class="brand" aria-label="NOPE home">
+            <span class="brand-mark">
+              <img src="assets/nope-icon-rounded.png" alt="" />
+            </span>
+            <span class="brand-name">NOPE.</span>
           </a>
-        </div>
 
-        <footer>
+          <div class="nav-group">
+            <nav class="header-links">
+              <a href="pages/privacy.html" class="privacy-link">Privacy Policy</a>
+              <a href="pages/terms.html" class="terms-link">Terms of Service</a>
+              <a href="pages/support.html" class="support-link">Support</a>
+            </nav>
+
+            <div class="language-picker" id="languagePicker">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path
+                  d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
+              </svg>
+              <span id="currentLang">EN</span>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <div class="language-dropdown">
+                <div class="language-option selected" data-lang="EN">EN</div>
+                <div class="language-option" data-lang="ES">ES</div>
+                <div class="language-option" data-lang="PT">PT</div>
+                <div class="language-option" data-lang="UA">UA</div>
+              </div>
+            </div>
+
+            <a href="https://apps.apple.com/app/id6759533856" class="button-primary header-cta">
+              <span class="header-cta-label">Download</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy reveal is-visible">
+              <div class="eyebrow" id="heroEyebrow">Goal-based saving for everyday decisions</div>
+              <h1 id="heroTitle">Turn “I almost bought it” into progress you can see.</h1>
+              <p id="heroDescription">
+                NOPE helps you stop impulse spending before it happens, redirect that money into savings goals, and build habits that actually stick.
+              </p>
+
+              <div class="hero-actions">
+                <a
+                  href="https://apps.apple.com/app/id6759533856"
+                  class="button-primary app-button"
+                  aria-label="Download on the App Store"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"
+                    />
+                  </svg>
+                  <span id="appButtonLabel">Download on the App Store</span>
+                </a>
+                <a href="#how-it-works" class="button-secondary" id="secondaryCta">How it works</a>
+              </div>
+            </div>
+
+            <div class="hero-visual reveal">
+              <div class="hero-orb"></div>
+              <div class="device-stage">
+                <img
+                  src="assets/phone-front-left-en.png"
+                  alt="NOPE app screen showing progress"
+                  id="heroPhoneMockupBack"
+                  class="device-phone device-phone-back float-delayed"
+                />
+                <img
+                  src="assets/phone-front-right-en.png"
+                  alt="NOPE app screen showing progress"
+                  id="heroPhoneMockupFront"
+                  class="device-phone device-phone-front float"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="how-it-works">
+          <div class="container">
+            <div class="section-intro reveal">
+              <span id="howEyebrow">How it works</span>
+              <h2 id="howTitle">A simple loop that turns hesitation into momentum.</h2>
+              <p id="howDescription">The product story is simple on purpose: notice the impulse, redirect the money, and keep seeing why those choices matter.</p>
+            </div>
+
+            <ol class="simple-steps">
+              <li class="simple-step reveal">
+                <div class="step-number">1</div>
+                <div>
+                  <h3 id="stepOneTitle">Catch the urge</h3>
+                  <p id="stepOneCopy">When something tempts you, log the purchase you didn’t make while the decision is still fresh.</p>
+                </div>
+              </li>
+              <li class="simple-step reveal">
+                <div class="step-number">2</div>
+                <div>
+                  <h3 id="stepTwoTitle">Redirect the money</h3>
+                  <p id="stepTwoCopy">Move that amount toward a goal that matters more than the impulse did.</p>
+                </div>
+              </li>
+              <li class="simple-step reveal">
+                <div class="step-number">3</div>
+                <div>
+                  <h3 id="stepThreeTitle">Build momentum</h3>
+                  <p id="stepThreeCopy">Track progress, notice your habits, and let small wins stack into something meaningful.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="final-cta reveal">
+              <h2 id="finalTitle">Save for what matters, one skipped impulse at a time.</h2>
+              <div class="hero-actions">
+                <a href="https://apps.apple.com/app/id6759533856" class="button-primary" id="finalButton">Download on the App Store</a>
+                <div class="final-pricing-note" id="finalPricingNote">
+                  Includes a 10-day free trial. Local pricing varies.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div class="footer-copy" id="footerCopyright">© 2026 NOPE. All rights reserved.</div>
           <div class="footer-links">
-            <a href="pages/privacy.html" class="footer-privacy-link"
-              >Privacy Policy</a
-            >
-            <a href="pages/terms.html" class="footer-terms-link"
-              >Terms of Service</a
-            >
+            <a href="pages/privacy.html" class="footer-privacy-link">Privacy Policy</a>
+            <a href="pages/terms.html" class="footer-terms-link">Terms of Service</a>
+            <a href="pages/support.html" class="footer-support-link">Support</a>
           </div>
-        </footer>
-        <div class="footer-copyright" id="footerCopyright">© 2026 NOPE. All rights reserved.</div>
-      </div>
-
-      <div class="phone-main">
-        <img
-          src="assets/phone-front-left-en.png"
-          alt="NOPE App - Left"
-          id="leftPhoneMockup"
-          class="phone-main-rear"
-        />
-        <img
-          src="assets/phone-front-right-en.png"
-          alt="NOPE App - Right"
-          id="rightPhoneMockup"
-          class="phone-main-front"
-        />
-      </div>
-    </main>
-
-    <div class="phone-mockups-mobile">
-      <div class="goal-cards-container">
-        <!-- Goal Card 1 - Trip to Japan -->
-        <div class="goal-card" data-card="1">
-          <div class="goal-header">
-            <div class="goal-icon" data-category="vacation">
-              <svg viewBox="0 0 512 512" fill="currentColor">
-                <path
-                  d="M407.72 224c-3.4 0-14.79.1-18 .3l-64.9 1.7a1.83 1.83 0 01-1.69-.9L193.55 67.56a9 9 0 00-6.66-3.56H160l73 161a2.35 2.35 0 01-2.26 3.35l-121.69 1.8a8.06 8.06 0 01-6.6-3.1l-37-45c-3-3.9-8.62-6-13.51-6H33.08c-1.29 0-1.1 1.21-.75 2.43l19.84 71.42a16.3 16.3 0 010 11.9L32.31 333c-.59 1.95-.52 3 1.77 3H52c8.14 0 9.25-1.06 13.41-6.3l37.7-45.7a8.19 8.19 0 016.6-3.1l120.68 2.7a2.7 2.7 0 012.43 3.74L160 448h26.64a9 9 0 006.65-3.55L323.14 287c.39-.6 2-.9 2.69-.9l63.9 1.7c3.3.2 14.59.3 18 .3C452 288.1 480 275.93 480 256s-27.88-32-72.28-32z"
-                />
-              </svg>
-            </div>
-            <div class="goal-name">Trip to Japan</div>
-          </div>
-          <div class="goal-amounts">
-            <span class="current-amount" data-category="vacation"
-              >$4,850.00</span
-            >
-            <span class="amount-separator"> / </span>
-            <span class="target-amount">$8,500.00</span>
-          </div>
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div
-                class="progress-fill"
-                data-category="vacation"
-                style="width: 57%"
-              ></div>
-            </div>
-            <div class="progress-text">57% complete</div>
-          </div>
-          <div class="motivational-text">
-            Save $145.00/week to hit Sep 12, 2026
-          </div>
-          <button class="boost-button">Boost</button>
         </div>
-
-        <!-- Goal Card 2 - Build Campervan -->
-        <div class="goal-card" data-card="2">
-          <div class="goal-header">
-            <div class="goal-icon" data-category="home">
-              <svg viewBox="0 0 512 512" fill="currentColor">
-                <path
-                  d="M261.56 101.28a8 8 0 00-11.06 0L66.4 277.15a8 8 0 00-2.47 5.79L63.9 448a32 32 0 0032 32H192a16 16 0 0016-16V328a8 8 0 018-8h80a8 8 0 018 8v136a16 16 0 0016 16h96.06a32 32 0 0032-32V282.94a8 8 0 00-2.47-5.79z"
-                />
-                <path
-                  d="M490.91 244.15l-74.8-71.56V64a16 16 0 00-16-16h-48a16 16 0 00-16 16v32l-57.92-55.38C272.77 35.14 264.71 32 256 32c-8.68 0-16.72 3.14-22.14 8.63l-212.7 203.5c-6.22 6-7 15.87-1.34 22.37A16 16 0 0043 267.56L250.5 69.28a8 8 0 0111.06 0l207.52 198.28a16 16 0 0022.59-.44c6.14-6.36 5.63-16.86-.76-22.97z"
-                />
-              </svg>
-            </div>
-            <div class="goal-name">Build campervan</div>
-          </div>
-          <div class="goal-amounts">
-            <span class="current-amount" data-category="home">$8,200.00</span>
-            <span class="amount-separator"> / </span>
-            <span class="target-amount">$25,000.00</span>
-          </div>
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div
-                class="progress-fill"
-                data-category="home"
-                style="width: 33%"
-              ></div>
-            </div>
-            <div class="progress-text">33% complete</div>
-          </div>
-          <div class="motivational-text">Every dollar brings you closer</div>
-          <button class="boost-button">Boost</button>
-        </div>
-
-        <!-- Goal Card 3 - Gaming Setup -->
-        <div class="goal-card" data-card="3">
-          <div class="goal-header">
-            <div class="goal-icon" data-category="gaming">
-              <svg viewBox="0 0 512 512" fill="currentColor">
-                <path
-                  d="M483.13 245.38C461.92 149.49 430 98.31 382.65 84.33A107.13 107.13 0 00352 80c-13.71 0-25.65 3.34-38.28 6.88C298.5 91.15 281.21 96 256 96s-42.51-4.84-57.76-9.11C185.6 83.34 173.67 80 160 80a115.74 115.74 0 00-31.73 4.32c-47.1 13.92-79 65.08-100.52 161C4.61 348.54 16 413.71 59.69 428.83a56.62 56.62 0 0018.64 3.22c29.93 0 53.93-24.93 70.33-45.34 18.53-23.1 40.22-34.82 107.34-34.82 59.95 0 84.76 8.13 106.19 34.82 13.47 16.78 26.2 28.52 38.9 35.91 16.89 9.82 33.77 12 50.16 6.37 25.82-8.81 40.62-32.1 44-69.24 2.57-28.48-1.39-65.89-11.12-114.37zM208 240h-32v32a16 16 0 01-32 0v-32h-32a16 16 0 010-32h32v-32a16 16 0 0132 0v32h32a16 16 0 010 32zm84 4a20 20 0 1120-20 20 20 0 01-20 20zm44 44a20 20 0 1120-19.95A20 20 0 01336 288zm0-88a20 20 0 1120-20 20 20 0 01-20 20zm44 44a20 20 0 1120-20 20 20 0 01-20 20z"
-                />
-              </svg>
-            </div>
-            <div class="goal-name">Gaming Setup</div>
-          </div>
-          <div class="goal-amounts">
-            <span class="current-amount" data-category="gaming">$1,950.00</span>
-            <span class="amount-separator"> / </span>
-            <span class="target-amount">$3,200.00</span>
-          </div>
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div
-                class="progress-fill"
-                data-category="gaming"
-                style="width: 61%"
-              ></div>
-            </div>
-            <div class="progress-text">61% complete</div>
-          </div>
-          <div class="motivational-text">You're building something awesome</div>
-          <button class="boost-button">Boost</button>
-        </div>
-      </div>
+      </footer>
     </div>
 
     <script>
-      // Locale configuration
       const locales = {
         EN: {
-          title: "Turn impulse spending into savings.",
-          description:
-            "Most apps track what you already spent. NOPE stops you before you do. Start by creating a goal. Every skipped purchase brings you closer to it — and the achievements and analytics help you understand yourself better along the way.",
-          cta: "Give it a try",
-          appStore: " Download on the App Store",
+          headerCta: "Download",
+          secondaryCta: "How it works",
+          hero: {
+            eyebrow: "Goal-based saving for everyday decisions",
+            title: "Turn “I almost bought it” into progress you can see.",
+            description:
+              "NOPE helps you stop impulse spending before it happens, redirect that money into savings goals, and build habits that actually stick.",
+            pricingNote:
+              "Start with a 10-day free trial. Pricing varies by country, but it’s roughly the cost of one coffee per month.",
+            note: "Built for people who want to save for something real, not just spend a little less.",
+            appStore: "Download on the App Store",
+          },
+          trust: [
+            {
+              title: "Impulse control",
+              copy: "Catch spending urges before they turn into receipts.",
+            },
+            {
+              title: "Goal-based saving",
+              copy: "Redirect skipped money into things you actually care about.",
+            },
+            {
+              title: "Visible progress",
+              copy: "Every “no” becomes something motivating and tangible.",
+            },
+            {
+              title: "Behavior insight",
+              copy: "See patterns and build self-awareness over time.",
+            },
+          ],
+          how: {
+            eyebrow: "How it works",
+            title: "A simple loop that turns hesitation into momentum.",
+            description:
+              "The product story is simple on purpose: notice the impulse, redirect the money, and keep seeing why those choices matter.",
+            steps: [
+              {
+                title: "Catch the urge",
+                copy: "When something tempts you, log the purchase you didn’t make while the decision is still fresh.",
+              },
+              {
+                title: "Redirect the money",
+                copy: "Move that amount toward a goal that matters more than the impulse did.",
+              },
+              {
+                title: "Build momentum",
+                copy: "Track progress, notice your habits, and let small wins stack into something meaningful.",
+              },
+            ],
+          },
+          showcase: {
+            one: {
+              title: "Make every skipped purchase visible.",
+              copy: "Instead of just feeling briefly proud, you get a clear record of what you protected and where that money is going. That makes restraint feel rewarding, not abstract.",
+            },
+            two: {
+              title: "Understand your habits, not just your totals.",
+              copy: "A good savings app should help you notice why spending happens. NOPE adds just enough reflection and pattern-tracking to make better decisions easier next time.",
+            },
+          },
+          benefits: {
+            eyebrow: "Why it works",
+            title: "Designed for small choices that add up fast.",
+            description:
+              "NOPE helps you turn everyday restraint into steady progress, clearer habits, and goals you actually care about.",
+            items: [
+              {
+                title: "Real goals, not vague saving",
+                copy: "It’s easier to skip an impulse when the alternative is something you genuinely want.",
+              },
+              {
+                title: "Motivation you can see",
+                copy: "Progress bars, milestones, and streaks help restraint feel worth it in the moment.",
+              },
+              {
+                title: "Simple enough for everyday use",
+                copy: "No complicated setup. Just a quick loop you can return to whenever temptation hits.",
+              },
+              {
+                title: "Built around self-awareness",
+                copy: "Insights make your behavior easier to understand, instead of turning everything into guilt.",
+              },
+              {
+                title: "Encouraging, not punishing",
+                copy: "The product rewards the pause. It doesn’t shame you for wanting things.",
+              },
+              {
+                title: "A calmer way to spend less",
+                copy: "You’re not just cutting back. You’re building momentum toward something meaningful.",
+              },
+            ],
+          },
+          final: {
+            title: "Save for what matters, one skipped impulse at a time.",
+            button: "Download on the App Store",
+            pricingNote:
+              "Includes a 10-day free trial. Local pricing varies.",
+          },
           footer: {
             copyright: "© 2026 NOPE. All rights reserved.",
             privacy: "Privacy Policy",
             terms: "Terms of Service",
+            support: "Support",
+          },
+          cards: {
+            skipLabel: "Skipped purchase",
+            skipAmount: "$24",
+            skipCaption: "saved today",
+            skipCopy:
+              "Didn’t order takeout. Moved it straight into your weekend getaway goal.",
+            goalLabel: "Goal progress",
+            goalCurrent: "$4,850",
+            goalTarget: "of $8,500",
+            goalProgress: 57,
+            goalCopy: "Trip to Japan is starting to feel very real.",
+            insightLabel: "Weekly insight",
+            insightMetric: "3x",
+            insightMetricLabel: "more skips on Fridays",
+            insightCopy:
+              "Small patterns like this help you understand what triggers the impulse.",
+            showcaseSkipPill: "Didn’t buy it",
+            showcaseSkipTitle: "Late-night food delivery",
+            showcaseSkipAmount: "$32",
+            showcaseSkipCopy:
+              "Redirected into your summer trip fund instead of disappearing into another one-off expense.",
+            showcaseGoalPill: "Goal",
+            showcaseGoalTitle: "Trip to Japan",
+            showcaseGoalAmount: "$4,850 of $8,500 saved",
+            showcaseGoalProgress: 57,
+            showcaseWeekPill: "This week",
+            showcaseWeekTitle: "$148 protected",
+            showcaseWeekCopy: "Four skipped purchases. One clearer sense of progress.",
+            insightPill: "Insight",
+            insightTitle: "Your highest-risk spending window",
+            insightAmount: "6-9 PM",
+            insightCopy:
+              "Most skipped purchases happen when you’re tired and scrolling. Knowing that makes the pattern easier to interrupt.",
+            streakPill: "Streak",
+            streakTitle: "5 mindful days",
+            streakCopy: "You’ve redirected money every day this week.",
+            patternPill: "Pattern",
+            patternTitle: "Coffee + delivery combo",
+            patternCopy: "Your most common impulse pair is easy to spot now.",
           },
           images: {
             phoneLeft: "assets/phone-front-left-en.png",
             phoneRight: "assets/phone-front-right-en.png",
           },
-          goals: [
-            {
-              name: "Trip to Japan",
-              current: "$4,850.00",
-              target: "$8,500.00",
-              percentage: 57,
-              message: "Save $145.00/week to hit Sep 12, 2026",
-              button: "Boost",
-            },
-            {
-              name: "Build campervan",
-              current: "$8,200.00",
-              target: "$25,000.00",
-              percentage: 33,
-              message: "Every dollar brings you closer",
-              button: "Boost",
-            },
-            {
-              name: "Gaming Setup",
-              current: "$1,950.00",
-              target: "$3,200.00",
-              percentage: 61,
-              message: "You're building something awesome",
-              button: "Boost",
-            },
-          ],
         },
         ES: {
-          title: "Convierte el gasto impulsivo en ahorros.",
-          description:
-            "La mayoría de las apps rastrean lo que ya gastaste. NOPE te detiene antes de hacerlo. Comienza creando un objetivo. Cada compra evitada te acerca más a él, y los logros y análisis te ayudan a entenderte mejor en el camino.",
-          cta: "Pruébalo",
-          appStore: " Descargar en App Store",
+          headerCta: "Descargar",
+          secondaryCta: "Por qué funciona",
+          hero: {
+            eyebrow: "Ahorro con objetivos para decisiones cotidianas",
+            title: "Convierte “casi lo compré” en progreso visible.",
+            description:
+              "NOPE te ayuda a frenar el gasto impulsivo antes de que ocurra, redirigir ese dinero a objetivos de ahorro y construir hábitos que sí se mantienen.",
+            pricingNote:
+              "Empieza con una prueba gratuita de 10 días. El precio varía según el país, pero ronda el costo de un café al mes.",
+            note: "Hecho para personas que quieren ahorrar para algo real, no solo gastar un poco menos.",
+            appStore: "Descargar en App Store",
+          },
+          trust: [
+            {
+              title: "Control de impulsos",
+              copy: "Detecta el impulso antes de que se convierta en un gasto.",
+            },
+            {
+              title: "Ahorro con objetivos",
+              copy: "Redirige el dinero evitado hacia cosas que sí importan.",
+            },
+            {
+              title: "Progreso visible",
+              copy: "Cada “no” se convierte en algo tangible y motivador.",
+            },
+            {
+              title: "Más conciencia",
+              copy: "Descubre patrones y entiende mejor tus hábitos.",
+            },
+          ],
+          how: {
+            eyebrow: "Cómo funciona",
+            title: "Un ciclo simple que convierte la pausa en impulso.",
+            description:
+              "La historia del producto es intencionalmente simple: detecta el impulso, redirige el dinero y sigue viendo por qué esas decisiones importan.",
+            steps: [
+              {
+                title: "Detecta el impulso",
+                copy: "Cuando algo te tiente, registra la compra que no hiciste mientras la decisión aún está fresca.",
+              },
+              {
+                title: "Redirige el dinero",
+                copy: "Mueve esa cantidad hacia un objetivo que importe más que el impulso.",
+              },
+              {
+                title: "Gana impulso",
+                copy: "Sigue tu progreso, detecta patrones y deja que pequeñas victorias se acumulen.",
+              },
+            ],
+          },
+          showcase: {
+            one: {
+              title: "Haz visible cada compra evitada.",
+              copy: "En lugar de sentir una satisfacción breve, obtienes un registro claro de lo que protegiste y hacia dónde fue ese dinero.",
+            },
+            two: {
+              title: "Entiende tus hábitos, no solo tus totales.",
+              copy: "Una buena app de ahorro también debería ayudarte a entender por qué gastas. NOPE añade la reflexión justa para decidir mejor la próxima vez.",
+            },
+          },
+          benefits: {
+            eyebrow: "Por qué funciona",
+            title: "Diseñado para pequeñas decisiones que suman rápido.",
+            description:
+              "NOPE te ayuda a convertir la contención diaria en progreso constante, hábitos más claros y objetivos que de verdad te importan.",
+            items: [
+              {
+                title: "Objetivos reales, no ahorro difuso",
+                copy: "Es más fácil resistir un impulso cuando la alternativa es algo que de verdad quieres.",
+              },
+              {
+                title: "Motivación que se ve",
+                copy: "Barras de progreso, hitos y rachas hacen que el esfuerzo valga la pena en el momento.",
+              },
+              {
+                title: "Lo bastante simple para el día a día",
+                copy: "Sin configuración complicada. Solo un ciclo rápido al que vuelves cuando aparece la tentación.",
+              },
+              {
+                title: "Pensado para entenderte",
+                copy: "Los insights hacen que tu comportamiento sea más fácil de comprender, sin culpa innecesaria.",
+              },
+              {
+                title: "Anima, no castiga",
+                copy: "El producto recompensa la pausa. No te avergüenza por querer cosas.",
+              },
+              {
+                title: "Una forma más tranquila de gastar menos",
+                copy: "No solo recortas gastos. Construyes impulso hacia algo importante.",
+              },
+            ],
+          },
+          final: {
+            title: "Ahorra para lo que importa, un impulso evitado a la vez.",
+            button: "Descargar en App Store",
+            pricingNote:
+              "Incluye una prueba gratuita de 10 días. El precio local varía.",
+          },
           footer: {
             copyright: "© 2026 NOPE. Todos los derechos reservados.",
             privacy: "Política de Privacidad",
             terms: "Términos de Servicio",
+            support: "Soporte",
+          },
+          cards: {
+            skipLabel: "Compra evitada",
+            skipAmount: "€24",
+            skipCaption: "ahorrados hoy",
+            skipCopy:
+              "No pediste comida a domicilio. Lo moviste directo a tu objetivo de escapada.",
+            goalLabel: "Progreso del objetivo",
+            goalCurrent: "€4.850",
+            goalTarget: "de €8.500",
+            goalProgress: 57,
+            goalCopy: "El viaje a Japón ya empieza a sentirse real.",
+            insightLabel: "Insight semanal",
+            insightMetric: "3x",
+            insightMetricLabel: "más compras evitadas los viernes",
+            insightCopy:
+              "Ver patrones así te ayuda a entender qué activa el impulso.",
+            showcaseSkipPill: "No lo compraste",
+            showcaseSkipTitle: "Comida a domicilio nocturna",
+            showcaseSkipAmount: "€32",
+            showcaseSkipCopy:
+              "Redirigido a tu fondo para vacaciones en lugar de perderse en otro gasto puntual.",
+            showcaseGoalPill: "Objetivo",
+            showcaseGoalTitle: "Viaje a Japón",
+            showcaseGoalAmount: "€4.850 de €8.500 ahorrados",
+            showcaseGoalProgress: 57,
+            showcaseWeekPill: "Esta semana",
+            showcaseWeekTitle: "€148 protegidos",
+            showcaseWeekCopy: "Cuatro compras evitadas. Un progreso mucho más claro.",
+            insightPill: "Insight",
+            insightTitle: "Tu franja de mayor riesgo",
+            insightAmount: "18-21 h",
+            insightCopy:
+              "La mayoría de las compras evitadas ocurren cuando estás cansado y haciendo scroll.",
+            streakPill: "Racha",
+            streakTitle: "5 días conscientes",
+            streakCopy: "Has redirigido dinero todos los días de esta semana.",
+            patternPill: "Patrón",
+            patternTitle: "Café + delivery",
+            patternCopy: "Tu combinación impulsiva más común ahora es fácil de detectar.",
           },
           images: {
             phoneLeft: "assets/phone-front-left-es.png",
             phoneRight: "assets/phone-front-right-es.png",
           },
-          goals: [
-            {
-              name: "Viaje a Japón",
-              current: "€4.850,00",
-              target: "€8.500,00",
-              percentage: 57,
-              message: "Ahorra €145,00/semana para lograr el 12 sep 2026",
-              button: "Impulsar",
-            },
-            {
-              name: "Construir campervan",
-              current: "€8.200,00",
-              target: "€25.000,00",
-              percentage: 33,
-              message: "Cada euro te acerca más",
-              button: "Impulsar",
-            },
-            {
-              name: "Setup de Gaming",
-              current: "€1.950,00",
-              target: "€3.200,00",
-              percentage: 61,
-              message: "Estás construyendo algo increíble",
-              button: "Impulsar",
-            },
-          ],
         },
         PT: {
-          title: "Transforme gastos impulsivos em economia.",
-          description:
-            "A maioria dos aplicativos rastreia o que você já gastou. NOPE te impede antes de fazer isso. Comece criando uma meta. Cada compra evitada te aproxima dela, e as conquistas e análises ajudam você a se entender melhor no caminho.",
-          cta: "Experimente",
-          appStore: " Baixar na App Store",
+          headerCta: "Baixar",
+          secondaryCta: "Por que funciona",
+          hero: {
+            eyebrow: "Economia com metas para decisões do dia a dia",
+            title: "Transforme “quase comprei” em progresso visível.",
+            description:
+              "NOPE ajuda você a parar gastos por impulso antes que aconteçam, redirecionar esse dinheiro para metas e criar hábitos que realmente permanecem.",
+            pricingNote:
+              "Comece com um teste grátis de 10 dias. O preço varia por país, mas fica em torno de um café por mês.",
+            note: "Feito para quem quer economizar para algo real, não apenas gastar um pouco menos.",
+            appStore: "Baixar na App Store",
+          },
+          trust: [
+            {
+              title: "Controle de impulso",
+              copy: "Perceba a vontade de gastar antes que ela vire compra.",
+            },
+            {
+              title: "Economia com metas",
+              copy: "Redirecione o dinheiro poupado para algo que realmente importa.",
+            },
+            {
+              title: "Progresso visível",
+              copy: "Cada “não” vira algo tangível e motivador.",
+            },
+            {
+              title: "Mais clareza",
+              copy: "Veja padrões e entenda melhor seus hábitos com o tempo.",
+            },
+          ],
+          how: {
+            eyebrow: "Como funciona",
+            title: "Um ciclo simples que transforma pausa em impulso.",
+            description:
+              "A lógica do produto é propositalmente simples: note o impulso, redirecione o dinheiro e continue vendo por que essas escolhas importam.",
+            steps: [
+              {
+                title: "Perceba a vontade",
+                copy: "Quando algo tentar você, registre a compra que não aconteceu enquanto a decisão ainda está fresca.",
+              },
+              {
+                title: "Redirecione o dinheiro",
+                copy: "Leve esse valor para uma meta que importe mais do que o impulso.",
+              },
+              {
+                title: "Crie impulso",
+                copy: "Acompanhe o progresso, note seus padrões e deixe pequenas vitórias se acumularem.",
+              },
+            ],
+          },
+          showcase: {
+            one: {
+              title: "Torne cada compra evitada visível.",
+              copy: "Em vez de sentir apenas uma satisfação passageira, você ganha um registro claro do que protegeu e para onde esse dinheiro foi.",
+            },
+            two: {
+              title: "Entenda seus hábitos, não só seus totais.",
+              copy: "Um bom app de economia também deveria ajudar você a perceber por que gasta. O NOPE adiciona reflexão suficiente para facilitar a próxima decisão.",
+            },
+          },
+          benefits: {
+            eyebrow: "Por que funciona",
+            title: "Feito para pequenas escolhas que crescem rápido.",
+            description:
+              "NOPE ajuda você a transformar disciplina diária em progresso constante, hábitos mais claros e metas com as quais você realmente se importa.",
+            items: [
+              {
+                title: "Metas reais, não economia vaga",
+                copy: "É mais fácil evitar um impulso quando a alternativa é algo que você realmente quer.",
+              },
+              {
+                title: "Motivação que você vê",
+                copy: "Barras de progresso, marcos e sequências fazem a disciplina valer a pena na hora.",
+              },
+              {
+                title: "Simples o bastante para usar sempre",
+                copy: "Sem configuração complicada. Apenas um ciclo rápido para voltar quando a tentação aparecer.",
+              },
+              {
+                title: "Criado para gerar consciência",
+                copy: "Os insights ajudam você a entender seu comportamento em vez de transformar tudo em culpa.",
+              },
+              {
+                title: "Incentiva, não pune",
+                copy: "O produto recompensa a pausa. Não envergonha você por querer coisas.",
+              },
+              {
+                title: "Uma forma mais calma de gastar menos",
+                copy: "Você não está apenas cortando gastos. Está construindo impulso para algo importante.",
+              },
+            ],
+          },
+          final: {
+            title: "Economize para o que importa, um impulso evitado de cada vez.",
+            button: "Baixar na App Store",
+            pricingNote:
+              "Inclui teste grátis de 10 dias. O preço local varia.",
+          },
           footer: {
             copyright: "© 2026 NOPE. Todos os direitos reservados.",
             privacy: "Política de Privacidade",
             terms: "Termos de Serviço",
+            support: "Suporte",
+          },
+          cards: {
+            skipLabel: "Compra evitada",
+            skipAmount: "€24",
+            skipCaption: "economizados hoje",
+            skipCopy:
+              "Você não pediu delivery. O valor foi direto para sua meta de escapada.",
+            goalLabel: "Progresso da meta",
+            goalCurrent: "€4.850",
+            goalTarget: "de €8.500",
+            goalProgress: 57,
+            goalCopy: "A viagem ao Japão já está começando a parecer real.",
+            insightLabel: "Insight da semana",
+            insightMetric: "3x",
+            insightMetricLabel: "mais pausas nas sextas",
+            insightCopy:
+              "Perceber padrões assim ajuda você a entender o que dispara o impulso.",
+            showcaseSkipPill: "Você não comprou",
+            showcaseSkipTitle: "Delivery tarde da noite",
+            showcaseSkipAmount: "€32",
+            showcaseSkipCopy:
+              "Redirecionado para seu fundo de viagem em vez de sumir em mais um gasto pontual.",
+            showcaseGoalPill: "Meta",
+            showcaseGoalTitle: "Viagem ao Japão",
+            showcaseGoalAmount: "€4.850 de €8.500 guardados",
+            showcaseGoalProgress: 57,
+            showcaseWeekPill: "Nesta semana",
+            showcaseWeekTitle: "€148 protegidos",
+            showcaseWeekCopy: "Quatro compras evitadas. Um senso de progresso muito mais claro.",
+            insightPill: "Insight",
+            insightTitle: "Seu horário de maior risco",
+            insightAmount: "18h-21h",
+            insightCopy:
+              "A maioria das compras evitadas acontece quando você está cansado e rolando a tela.",
+            streakPill: "Sequência",
+            streakTitle: "5 dias conscientes",
+            streakCopy: "Você redirecionou dinheiro todos os dias desta semana.",
+            patternPill: "Padrão",
+            patternTitle: "Café + delivery",
+            patternCopy: "Sua combinação impulsiva mais comum agora está fácil de ver.",
           },
           images: {
             phoneLeft: "assets/phone-front-left-pt.png",
             phoneRight: "assets/phone-front-right-pt.png",
           },
-          goals: [
-            {
-              name: "Viagem ao Japão",
-              current: "€4.850,00",
-              target: "€8.500,00",
-              percentage: 57,
-              message: "Economize €145,00/semana para atingir 12 set 2026",
-              button: "Impulsionar",
-            },
-            {
-              name: "Construir campervan",
-              current: "€8.200,00",
-              target: "€25.000,00",
-              percentage: 33,
-              message: "Cada euro te aproxima mais",
-              button: "Impulsionar",
-            },
-            {
-              name: "Setup de Gaming",
-              current: "€1.950,00",
-              target: "€3.200,00",
-              percentage: 61,
-              message: "Você está construindo algo incrível",
-              button: "Impulsionar",
-            },
-          ],
         },
         UA: {
-          title: "Перетворіть імпульсивні витрати на заощадження.",
-          description:
-            "Більшість додатків відстежують те, що ви вже витратили. NOPE зупиняє вас до цього. Почніть зі створення цілі. Кожна пропущена покупка наближає вас до неї, а винагороди та аналітика допомагають краще зрозуміти себе.",
-          cta: "Спробувати",
-          appStore: " Завантажити в App Store",
+          headerCta: "Завантажити",
+          secondaryCta: "Чому це працює",
+          hero: {
+            eyebrow: "Заощадження з цілями для щоденних рішень",
+            title: "Перетворіть “ледь не купив” на видимий прогрес.",
+            description:
+              "NOPE допомагає зупинити імпульсивні витрати до того, як вони стануть покупкою, перенаправити ці гроші в цілі та формувати звички, які справді тримаються.",
+            pricingNote:
+              "Почніть із безкоштовного 10-денного пробного періоду. Ціна залежить від країни, але загалом це приблизно одна кава на місяць.",
+            note: "Для людей, які хочуть відкладати на щось реальне, а не просто трохи менше витрачати.",
+            appStore: "Завантажити в App Store",
+          },
+          trust: [
+            {
+              title: "Контроль імпульсу",
+              copy: "Помічайте бажання витратити до того, як воно стане покупкою.",
+            },
+            {
+              title: "Заощадження з цілями",
+              copy: "Спрямуйте збережені гроші на те, що для вас справді важливо.",
+            },
+            {
+              title: "Видимий прогрес",
+              copy: "Кожне “ні” перетворюється на щось відчутне й мотивуюче.",
+            },
+            {
+              title: "Краще розуміння себе",
+              copy: "Помічайте патерни та з часом краще розумійте свої звички.",
+            },
+          ],
+          how: {
+            eyebrow: "Як це працює",
+            title: "Простий цикл, що перетворює паузу на рух уперед.",
+            description:
+              "Ідея продукту навмисно проста: помітити імпульс, перенаправити гроші й далі бачити, чому ці рішення важливі.",
+            steps: [
+              {
+                title: "Зловіть імпульс",
+                copy: "Коли щось вас спокушає, зафіксуйте покупку, якої ви не зробили, поки рішення ще свіже.",
+              },
+              {
+                title: "Спрямуйте гроші",
+                copy: "Переведіть цю суму в ціль, яка для вас важливіша за миттєве бажання.",
+              },
+              {
+                title: "Нарощуйте темп",
+                copy: "Слідкуйте за прогресом, помічайте свої патерни та дозвольте маленьким перемогам накопичуватися.",
+              },
+            ],
+          },
+          showcase: {
+            one: {
+              title: "Зробіть кожну пропущену покупку видимою.",
+              copy: "Замість короткого відчуття гордості ви отримуєте чіткий запис того, що вберегли, і куди пішли ці гроші.",
+            },
+            two: {
+              title: "Розумійте свої звички, а не лише підсумки.",
+              copy: "Хороший додаток для заощаджень має допомагати зрозуміти, чому виникають витрати. NOPE додає рівно стільки рефлексії, скільки потрібно для кращого рішення наступного разу.",
+            },
+          },
+          benefits: {
+            eyebrow: "Чому це працює",
+            title: "Створено для маленьких рішень, які швидко накопичуються.",
+            description:
+              "NOPE допомагає перетворити щоденну стриманість на стабільний прогрес, зрозуміліші звички та цілі, які для вас справді важливі.",
+            items: [
+              {
+                title: "Реальні цілі, а не абстрактні заощадження",
+                copy: "Простіше відмовитись від імпульсу, коли альтернатива - це те, чого ви справді хочете.",
+              },
+              {
+                title: "Мотивація, яку видно",
+                copy: "Прогрес-бари, віхи та серії допомагають відчути цінність стриманості одразу.",
+              },
+              {
+                title: "Достатньо просто для щоденного використання",
+                copy: "Без складного налаштування. Лише швидкий цикл, до якого легко повертатися.",
+              },
+              {
+                title: "Побудовано навколо самоусвідомлення",
+                copy: "Інсайти допомагають зрозуміти свою поведінку, а не перетворюють усе на провину.",
+              },
+              {
+                title: "Підтримує, а не карає",
+                copy: "Продукт винагороджує паузу. Він не засуджує вас за бажання щось купити.",
+              },
+              {
+                title: "Спокійніший спосіб витрачати менше",
+                copy: "Ви не просто урізаєте витрати. Ви рухаєтесь до чогось справді важливого.",
+              },
+            ],
+          },
+          final: {
+            title: "Заощаджуйте на важливе, один пропущений імпульс за раз.",
+            button: "Завантажити в App Store",
+            pricingNote:
+              "Є безкоштовний 10-денний пробний період. Локальна ціна відрізняється.",
+          },
           footer: {
             copyright: "© 2026 NOPE. Всі права захищені.",
             privacy: "Політика Конфіденційності",
             terms: "Умови Використання",
+            support: "Підтримка",
+          },
+          cards: {
+            skipLabel: "Пропущена покупка",
+            skipAmount: "₴1 000",
+            skipCaption: "збережено сьогодні",
+            skipCopy:
+              "Ви не замовили доставку. Сума одразу пішла у вашу ціль на відпочинок.",
+            goalLabel: "Прогрес цілі",
+            goalCurrent: "₴194 000",
+            goalTarget: "з ₴340 000",
+            goalProgress: 57,
+            goalCopy: "Подорож до Японії вже відчувається реальною.",
+            insightLabel: "Інсайт тижня",
+            insightMetric: "3x",
+            insightMetricLabel: "більше пауз у п’ятницю",
+            insightCopy:
+              "Такі патерни допомагають зрозуміти, що саме запускає імпульс.",
+            showcaseSkipPill: "Ви не купили",
+            showcaseSkipTitle: "Пізня доставка їжі",
+            showcaseSkipAmount: "₴1 300",
+            showcaseSkipCopy:
+              "Спрямовано у фонд подорожі замість ще однієї випадкової витрати.",
+            showcaseGoalPill: "Ціль",
+            showcaseGoalTitle: "Подорож до Японії",
+            showcaseGoalAmount: "₴194 000 з ₴340 000 відкладено",
+            showcaseGoalProgress: 57,
+            showcaseWeekPill: "Цього тижня",
+            showcaseWeekTitle: "₴6 100 збережено",
+            showcaseWeekCopy: "Чотири пропущені покупки. Значно ясніше відчуття прогресу.",
+            insightPill: "Інсайт",
+            insightTitle: "Ваш час найбільшого ризику",
+            insightAmount: "18:00-21:00",
+            insightCopy:
+              "Найбільше пропущених покупок трапляється, коли ви втомлені й гортаєте стрічку.",
+            streakPill: "Серія",
+            streakTitle: "5 усвідомлених днів",
+            streakCopy: "Ви перенаправляли гроші щодня цього тижня.",
+            patternPill: "Патерн",
+            patternTitle: "Кава + доставка",
+            patternCopy: "Вашу найчастішу імпульсивну комбінацію тепер легко помітити.",
           },
           images: {
             phoneLeft: "assets/phone-front-left-ua.png",
             phoneRight: "assets/phone-front-right-ua.png",
           },
-          goals: [
-            {
-              name: "Подорож до Японії",
-              current: "₴194.000,00",
-              target: "₴340.000,00",
-              percentage: 57,
-              message: "Заощаджуйте ₴5.800,00/тиждень до 12 вер 2026",
-              button: "Поповнити",
-            },
-            {
-              name: "Побудувати кемпер",
-              current: "₴328.000,00",
-              target: "₴800.000,00",
-              percentage: 33,
-              message: "Кожна гривня наближає вас",
-              button: "Поповнити",
-            },
-            {
-              name: "Ігровий сетап",
-              current: "₴78.000,00",
-              target: "₴128.000,00",
-              percentage: 61,
-              message: "Ви будуєте щось чудове",
-              button: "Поповнити",
-            },
-          ],
         },
       };
 
-      // Get saved locale or default to EN
+      const fieldMap = {
+        headerCta: ".header-cta-label",
+        secondaryCta: "#secondaryCta",
+        heroEyebrow: "#heroEyebrow",
+        heroTitle: "#heroTitle",
+        heroDescription: "#heroDescription",
+        heroPricingNote: "#heroPricingNote",
+        heroNote: "#heroNote",
+        appButtonLabel: "#appButtonLabel",
+        howEyebrow: "#howEyebrow",
+        howTitle: "#howTitle",
+        howDescription: "#howDescription",
+        showcaseOneTitle: "#showcaseOneTitle",
+        showcaseOneCopy: "#showcaseOneCopy",
+        showcaseTwoTitle: "#showcaseTwoTitle",
+        showcaseTwoCopy: "#showcaseTwoCopy",
+        benefitsEyebrow: "#benefitsEyebrow",
+        benefitsTitle: "#benefitsTitle",
+        benefitsDescription: "#benefitsDescription",
+        finalTitle: "#finalTitle",
+        finalDescription: "#finalDescription",
+        finalButton: "#finalButton",
+        finalPricingNote: "#finalPricingNote",
+        showcaseSkipPill: "#showcaseSkipPill",
+        showcaseSkipTitle: "#showcaseSkipTitle",
+        showcaseSkipAmount: "#showcaseSkipAmount",
+        showcaseSkipCopy: "#showcaseSkipCopy",
+        showcaseGoalPill: "#showcaseGoalPill",
+        showcaseGoalTitle: "#showcaseGoalTitle",
+        showcaseGoalAmount: "#showcaseGoalAmount",
+        showcaseWeekPill: "#showcaseWeekPill",
+        showcaseWeekTitle: "#showcaseWeekTitle",
+        showcaseWeekCopy: "#showcaseWeekCopy",
+        insightPill: "#insightPill",
+        insightTitle: "#insightTitle",
+        insightAmount: "#insightAmount",
+        insightCopy: "#insightCopy",
+        streakPill: "#streakPill",
+        streakTitle: "#streakTitle",
+        streakCopy: "#streakCopy",
+        patternPill: "#patternPill",
+        patternTitle: "#patternTitle",
+        patternCopy: "#patternCopy",
+      };
+
       let currentLocale = localStorage.getItem("nope-locale") || "EN";
 
-      // Update content based on locale
-      function updateContent(locale) {
-        const content = locales[locale];
-
-        // Update hero text
-        document.querySelector(".hero h1").textContent = content.title;
-        document.querySelector(".hero p").textContent = content.description;
-
-        // Update buttons
-        document.querySelector("header .cta-button").textContent = content.cta;
-
-        // Update app button (preserve SVG icon)
-        const appButton = document.querySelector(".app-button");
-        const svg = appButton.querySelector("svg");
-        appButton.textContent = content.appStore;
-        if (svg) {
-          appButton.insertBefore(svg, appButton.firstChild);
+      function setText(selector, value) {
+        const element = document.querySelector(selector);
+        if (element) {
+          element.textContent = value;
         }
+      }
 
-        // Update header links
-        document.querySelectorAll(".header-links a")[0].textContent =
-          content.footer.privacy;
-        document.querySelectorAll(".header-links a")[1].textContent =
-          content.footer.terms;
-
-        // Update footer links
-        const footerLinks = document.querySelectorAll("footer .footer-links a");
-        if (footerLinks.length > 0) {
-          footerLinks[0].textContent = content.footer.privacy;
-          footerLinks[1].textContent = content.footer.terms;
+      function updateProgress(selector, percentage) {
+        const element = document.querySelector(selector);
+        if (element) {
+          element.style.width = percentage + "%";
         }
+      }
 
-        // Update copyright
-        const footerCopyright = document.getElementById("footerCopyright");
-        if (footerCopyright) {
-          footerCopyright.textContent = content.footer.copyright;
-        }
+      function updateLocale(locale) {
+        const content = locales[locale] || locales.EN;
+        const htmlLangMap = {
+          EN: "en",
+          ES: "es",
+          PT: "pt",
+          UA: "uk",
+        };
 
-        // Update desktop phone mockups
-        const leftPhoneMockup = document.getElementById("leftPhoneMockup");
-        const rightPhoneMockup = document.getElementById("rightPhoneMockup");
-        if (leftPhoneMockup) {
-          leftPhoneMockup.src = content.images.phoneLeft;
-        }
-        if (rightPhoneMockup) {
-          rightPhoneMockup.src = content.images.phoneRight;
-        }
+        setText(fieldMap.headerCta, content.headerCta);
+        setText(fieldMap.secondaryCta, content.secondaryCta);
+        setText(fieldMap.heroEyebrow, content.hero.eyebrow);
+        setText(fieldMap.heroTitle, content.hero.title);
+        setText(fieldMap.heroDescription, content.hero.description);
+        setText(fieldMap.heroPricingNote, content.hero.pricingNote);
+        setText(fieldMap.heroNote, content.hero.note);
+        setText(fieldMap.appButtonLabel, content.hero.appStore);
 
-        // Update goal cards
-        const goalCards = document.querySelectorAll(".goal-card");
-        content.goals.forEach((goal, index) => {
-          const card = goalCards[index];
-          if (card) {
-            card.querySelector(".goal-name").textContent = goal.name;
-            card.querySelector(".current-amount").textContent = goal.current;
-            card.querySelector(".target-amount").textContent = goal.target;
-            card.querySelector(".progress-fill").style.width =
-              goal.percentage + "%";
-            card.querySelector(".progress-text").textContent =
-              goal.percentage + "% complete";
-            card.querySelector(".motivational-text").textContent = goal.message;
-            card.querySelector(".boost-button").textContent = goal.button;
+        setText("#trustOneTitle", content.trust[0].title);
+        setText("#trustOneCopy", content.trust[0].copy);
+        setText("#trustTwoTitle", content.trust[1].title);
+        setText("#trustTwoCopy", content.trust[1].copy);
+        setText("#trustThreeTitle", content.trust[2].title);
+        setText("#trustThreeCopy", content.trust[2].copy);
+        setText("#trustFourTitle", content.trust[3].title);
+        setText("#trustFourCopy", content.trust[3].copy);
+
+        setText(fieldMap.howEyebrow, content.how.eyebrow);
+        setText(fieldMap.howTitle, content.how.title);
+        setText(fieldMap.howDescription, content.how.description);
+        setText("#stepOneTitle", content.how.steps[0].title);
+        setText("#stepOneCopy", content.how.steps[0].copy);
+        setText("#stepTwoTitle", content.how.steps[1].title);
+        setText("#stepTwoCopy", content.how.steps[1].copy);
+        setText("#stepThreeTitle", content.how.steps[2].title);
+        setText("#stepThreeCopy", content.how.steps[2].copy);
+
+        setText(fieldMap.showcaseOneTitle, content.showcase.one.title);
+        setText(fieldMap.showcaseOneCopy, content.showcase.one.copy);
+        setText(fieldMap.showcaseTwoTitle, content.showcase.two.title);
+        setText(fieldMap.showcaseTwoCopy, content.showcase.two.copy);
+
+        setText(fieldMap.benefitsEyebrow, content.benefits.eyebrow);
+        setText(fieldMap.benefitsTitle, content.benefits.title);
+        setText(fieldMap.benefitsDescription, content.benefits.description);
+
+        content.benefits.items.forEach((item, index) => {
+          const number = index + 1;
+          const word = ["One", "Two", "Three", "Four", "Five", "Six"][index];
+          setText("#benefit" + word + "Title", item.title);
+          setText("#benefit" + word + "Copy", item.copy);
+          const icon = document.querySelectorAll(".benefit-icon")[index];
+          if (icon) {
+            icon.textContent = String(number).padStart(2, "0");
           }
         });
 
-        // Save locale
+        setText(fieldMap.finalTitle, content.final.title);
+        setText(fieldMap.finalDescription, content.final.description);
+        setText(fieldMap.finalButton, content.final.button);
+        setText(fieldMap.finalPricingNote, content.final.pricingNote);
+
+        setText(fieldMap.showcaseSkipPill, content.cards.showcaseSkipPill);
+        setText(fieldMap.showcaseSkipTitle, content.cards.showcaseSkipTitle);
+        setText(fieldMap.showcaseSkipAmount, content.cards.showcaseSkipAmount);
+        setText(fieldMap.showcaseSkipCopy, content.cards.showcaseSkipCopy);
+        setText(fieldMap.showcaseGoalPill, content.cards.showcaseGoalPill);
+        setText(fieldMap.showcaseGoalTitle, content.cards.showcaseGoalTitle);
+        setText(fieldMap.showcaseGoalAmount, content.cards.showcaseGoalAmount);
+        setText(fieldMap.showcaseWeekPill, content.cards.showcaseWeekPill);
+        setText(fieldMap.showcaseWeekTitle, content.cards.showcaseWeekTitle);
+        setText(fieldMap.showcaseWeekCopy, content.cards.showcaseWeekCopy);
+        setText(fieldMap.insightPill, content.cards.insightPill);
+        setText(fieldMap.insightTitle, content.cards.insightTitle);
+        setText(fieldMap.insightAmount, content.cards.insightAmount);
+        setText(fieldMap.insightCopy, content.cards.insightCopy);
+        setText(fieldMap.streakPill, content.cards.streakPill);
+        setText(fieldMap.streakTitle, content.cards.streakTitle);
+        setText(fieldMap.streakCopy, content.cards.streakCopy);
+        setText(fieldMap.patternPill, content.cards.patternPill);
+        setText(fieldMap.patternTitle, content.cards.patternTitle);
+        setText(fieldMap.patternCopy, content.cards.patternCopy);
+
+        setText("#showcaseGoalProgress", content.cards.showcaseGoalProgress + "%");
+        updateProgress("#showcaseGoalFill", content.cards.showcaseGoalProgress);
+
+        setText(".privacy-link", content.footer.privacy);
+        setText(".terms-link", content.footer.terms);
+        setText(".support-link", content.footer.support);
+        setText(".footer-privacy-link", content.footer.privacy);
+        setText(".footer-terms-link", content.footer.terms);
+        setText(".footer-support-link", content.footer.support);
+        setText("#footerCopyright", content.footer.copyright);
+
+        const heroPhoneMockupBack = document.getElementById("heroPhoneMockupBack");
+        const heroPhoneMockupFront = document.getElementById("heroPhoneMockupFront");
+        if (heroPhoneMockupBack) {
+          heroPhoneMockupBack.src = content.images.phoneLeft;
+        }
+        if (heroPhoneMockupFront) {
+          heroPhoneMockupFront.src = content.images.phoneRight;
+        }
+
+        document.documentElement.lang = htmlLangMap[locale] || "en";
         localStorage.setItem("nope-locale", locale);
         currentLocale = locale;
       }
 
-      // Language picker functionality
       const languagePicker = document.getElementById("languagePicker");
       const currentLang = document.getElementById("currentLang");
       const languageOptions = document.querySelectorAll(".language-option");
 
-      // Initialize with saved locale
       currentLang.textContent = currentLocale;
-      languageOptions.forEach((opt) => {
-        opt.classList.toggle("selected", opt.dataset.lang === currentLocale);
+      languageOptions.forEach((option) => {
+        option.classList.toggle("selected", option.dataset.lang === currentLocale);
       });
-      updateContent(currentLocale);
+      updateLocale(currentLocale);
 
-      languagePicker.addEventListener("click", (e) => {
-        e.stopPropagation();
+      languagePicker.addEventListener("click", (event) => {
+        event.stopPropagation();
         languagePicker.classList.toggle("active");
       });
 
       languageOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const lang = option.dataset.lang;
-          currentLang.textContent = lang;
-
-          languageOptions.forEach((opt) => opt.classList.remove("selected"));
+        option.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const locale = option.dataset.lang;
+          currentLang.textContent = locale;
+          languageOptions.forEach((item) => item.classList.remove("selected"));
           option.classList.add("selected");
-
           languagePicker.classList.remove("active");
-
-          // Update content with new locale
-          updateContent(lang);
+          updateLocale(locale);
         });
       });
 
       document.addEventListener("click", () => {
         languagePicker.classList.remove("active");
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.14,
+        }
+      );
+
+      document.querySelectorAll(".reveal:not(.is-visible)").forEach((element) => {
+        observer.observe(element);
       });
     </script>
   </body>
