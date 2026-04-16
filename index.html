@@ -278,8 +278,8 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
-        gap: 88px;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+        gap: 24px;
         align-items: center;
       }
 
@@ -333,6 +333,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        justify-self: start;
+        margin-left: 0;
+        flex: 0 0 auto;
       }
 
       .hero-orb {
@@ -349,7 +352,9 @@
 
       .device-stage {
         position: relative;
-        width: min(100%, 500px);
+        width: 500px;
+        max-width: 100%;
+        flex: 0 0 auto;
         min-height: 700px;
         display: flex;
         align-items: center;
@@ -362,6 +367,10 @@
         width: min(100%, 328px);
         filter: drop-shadow(0 32px 72px rgba(0, 0, 0, 0.42));
         z-index: 2;
+        transition:
+          transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity;
       }
 
       .device-phone-back {
@@ -374,6 +383,54 @@
       .device-phone-front {
         right: -10px;
         transform: scale(1);
+      }
+
+      .hero-visual.stack-mode .device-stage {
+        width: 520px;
+      }
+
+      .hero-visual.stack-mode .device-phone {
+        right: auto;
+        left: var(--phone-left);
+        top: 50%;
+        opacity: 0;
+        transform: translate3d(140px, -50%, 0) scale(var(--phone-scale));
+        animation: none !important;
+      }
+
+      .hero-visual.stack-mode .device-phone-back {
+        --phone-left: 12%;
+        --phone-scale: 0.9;
+        z-index: 1;
+      }
+
+      .hero-visual.stack-mode .device-phone-middle {
+        --phone-left: 36%;
+        --phone-scale: 0.95;
+        z-index: 2;
+      }
+
+      .hero-visual.stack-mode .device-phone-front {
+        --phone-left: 56%;
+        --phone-scale: 1;
+        z-index: 3;
+      }
+
+      .hero-visual.stack-mode.stack-ready .device-phone {
+        opacity: 1;
+        transform: translate3d(0, -50%, 0) scale(var(--phone-scale));
+      }
+
+      .hero-visual.stack-mode.stack-ready .device-phone-back {
+        transition-delay: 0ms;
+      }
+
+      .hero-visual.stack-mode.stack-ready .device-phone-middle {
+        transition-delay: 1000ms;
+      }
+
+      .hero-visual.stack-mode.stack-ready .device-phone-front {
+        transition-delay: 2000ms;
       }
 
       .progress-row {
@@ -535,6 +592,22 @@
         border-top: 1px solid rgba(255, 255, 255, 0.08);
       }
 
+      .footer-meta {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .footer-support-email {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .footer-support-email:hover {
+        color: var(--text);
+      }
+
       .footer-links {
         display: flex;
         flex-wrap: wrap;
@@ -564,12 +637,9 @@
         transform: translateY(0);
       }
 
-      .float {
-        animation: floaty 6s ease-in-out infinite;
-      }
-
+      .float,
       .float-delayed {
-        animation: floaty 7.5s ease-in-out infinite;
+        animation: none;
       }
 
       @keyframes floaty {
@@ -679,6 +749,35 @@
           transform: scale(1);
         }
 
+        .hero-visual.stack-mode .device-stage {
+          width: 400px;
+          min-height: 520px;
+        }
+
+        .hero-visual.stack-mode .device-phone-back {
+          --phone-left: 10%;
+        }
+
+        .hero-visual.stack-mode .device-phone-middle {
+          --phone-left: 27%;
+        }
+
+        .hero-visual.stack-mode .device-phone-front {
+          --phone-left: 44%;
+        }
+
+        .hero-visual.stack-mode.stack-ready .device-phone-back {
+          transition-delay: 0ms;
+        }
+
+        .hero-visual.stack-mode.stack-ready .device-phone-middle {
+          transition-delay: 1000ms;
+        }
+
+        .hero-visual.stack-mode.stack-ready .device-phone-front {
+          transition-delay: 2000ms;
+        }
+
         .simple-step {
           gap: 14px;
         }
@@ -697,7 +796,6 @@
             <nav class="header-links">
               <a href="pages/privacy.html" class="privacy-link">Privacy Policy</a>
               <a href="pages/terms.html" class="terms-link">Terms of Service</a>
-              <a href="pages/support.html" class="support-link">Support</a>
             </nav>
 
             <div class="language-picker" id="languagePicker">
@@ -766,16 +864,22 @@
               <div class="hero-orb"></div>
               <div class="device-stage">
                 <img
-                  src="assets/phone-front-left-en.png"
+                  src="assets/en-1.png"
                   alt="NOPE app screen showing progress"
                   id="heroPhoneMockupBack"
-                  class="device-phone device-phone-back float-delayed"
+                  class="device-phone device-phone-back"
                 />
                 <img
-                  src="assets/phone-front-right-en.png"
+                  src="assets/en-2.png"
+                  alt="NOPE app screen showing progress"
+                  id="heroPhoneMockupMiddle"
+                  class="device-phone device-phone-middle"
+                />
+                <img
+                  src="assets/en-3.png"
                   alt="NOPE app screen showing progress"
                   id="heroPhoneMockupFront"
-                  class="device-phone device-phone-front float"
+                  class="device-phone device-phone-front"
                 />
               </div>
             </div>
@@ -834,10 +938,12 @@
       <footer class="site-footer">
         <div class="container footer-inner">
           <div class="footer-copy" id="footerCopyright">© 2026 NOPE. All rights reserved.</div>
-          <div class="footer-links">
-            <a href="pages/privacy.html" class="footer-privacy-link">Privacy Policy</a>
-            <a href="pages/terms.html" class="footer-terms-link">Terms of Service</a>
-            <a href="pages/support.html" class="footer-support-link">Support</a>
+          <div class="footer-meta">
+            <a href="mailto:support@saynope.app" class="footer-support-email">support@saynope.app</a>
+            <div class="footer-links">
+              <a href="pages/privacy.html" class="footer-privacy-link">Privacy Policy</a>
+              <a href="pages/terms.html" class="footer-terms-link">Terms of Service</a>
+            </div>
           </div>
         </div>
       </footer>
@@ -948,7 +1054,6 @@
             copyright: "© 2026 NOPE. All rights reserved.",
             privacy: "Privacy Policy",
             terms: "Terms of Service",
-            support: "Support",
           },
           cards: {
             skipLabel: "Skipped purchase",
@@ -991,6 +1096,11 @@
             patternCopy: "Your most common impulse pair is easy to spot now.",
           },
           images: {
+            phoneStack: [
+              "assets/en-1.png",
+              "assets/en-2.png",
+              "assets/en-3.png",
+            ],
             phoneLeft: "assets/phone-front-left-en.png",
             phoneRight: "assets/phone-front-right-en.png",
           },
@@ -1141,6 +1251,11 @@
             patternCopy: "Tu combinación impulsiva más común ahora es fácil de detectar.",
           },
           images: {
+            phoneStack: [
+              "assets/es-1.png",
+              "assets/es-2.png",
+              "assets/es-3.png",
+            ],
             phoneLeft: "assets/phone-front-left-es.png",
             phoneRight: "assets/phone-front-right-es.png",
           },
@@ -1291,6 +1406,11 @@
             patternCopy: "Sua combinação impulsiva mais comum agora está fácil de ver.",
           },
           images: {
+            phoneStack: [
+              "assets/pt-1.png",
+              "assets/pt-2.png",
+              "assets/pt-3.png",
+            ],
             phoneLeft: "assets/phone-front-left-pt.png",
             phoneRight: "assets/phone-front-right-pt.png",
           },
@@ -1441,6 +1561,11 @@
             patternCopy: "Вашу найчастішу імпульсивну комбінацію тепер легко помітити.",
           },
           images: {
+            phoneStack: [
+              "assets/ua-1.png",
+              "assets/ua-2.png",
+              "assets/ua-3.png",
+            ],
             phoneLeft: "assets/phone-front-left-ua.png",
             phoneRight: "assets/phone-front-right-ua.png",
           },
@@ -1596,19 +1721,38 @@
 
         setText(".privacy-link", content.footer.privacy);
         setText(".terms-link", content.footer.terms);
-        setText(".support-link", content.footer.support);
         setText(".footer-privacy-link", content.footer.privacy);
         setText(".footer-terms-link", content.footer.terms);
-        setText(".footer-support-link", content.footer.support);
         setText("#footerCopyright", content.footer.copyright);
 
+        const heroVisual = document.querySelector(".hero-visual");
         const heroPhoneMockupBack = document.getElementById("heroPhoneMockupBack");
+        const heroPhoneMockupMiddle = document.getElementById("heroPhoneMockupMiddle");
         const heroPhoneMockupFront = document.getElementById("heroPhoneMockupFront");
-        if (heroPhoneMockupBack) {
-          heroPhoneMockupBack.src = content.images.phoneLeft;
-        }
-        if (heroPhoneMockupFront) {
-          heroPhoneMockupFront.src = content.images.phoneRight;
+
+        if (content.images.phoneStack) {
+          heroVisual?.classList.add("stack-mode");
+          heroPhoneMockupBack.src = content.images.phoneStack[0];
+          heroPhoneMockupMiddle.src = content.images.phoneStack[1];
+          heroPhoneMockupFront.src = content.images.phoneStack[2];
+          heroPhoneMockupMiddle.style.display = "";
+          heroVisual?.classList.remove("stack-ready");
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              heroVisual?.classList.add("stack-ready");
+            });
+          });
+        } else {
+          heroVisual?.classList.remove("stack-mode", "stack-ready");
+          if (heroPhoneMockupBack) {
+            heroPhoneMockupBack.src = content.images.phoneLeft;
+          }
+          if (heroPhoneMockupMiddle) {
+            heroPhoneMockupMiddle.style.display = "none";
+          }
+          if (heroPhoneMockupFront) {
+            heroPhoneMockupFront.src = content.images.phoneRight;
+          }
         }
 
         document.documentElement.lang = htmlLangMap[locale] || "en";
